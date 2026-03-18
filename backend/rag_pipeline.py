@@ -1,0 +1,93 @@
+import openai
+import os
+import sys
+from dotenv import load_dotenv
+
+# Ensure local imports work regardless of CWD
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
+from endee_client import endee_client
+from embedding import embedding_generator
+
+load_dotenv()
+
+class RAGPipeline:
+    def __init__(self):
+        self.index_name = "study_materials"
+        self.provider = os.getenv("LLM_PROVIDER", "openai").lower()
+        self.api_key = os.getenv("OPENAI_API_KEY") if self.provider == "openai" else os.getenv("GEMINI_API_KEY")
+
+    def generate_answer(self, prompt: str, context: str) -> str:
+        if not self.api_key or self.api_key in ["your_openai_api_key_here", "your_gemini_api_key_here"]:
+             print(f"[WARNING] {self.provider.upper()}_API_KEY is placeholder. Using MOCK.")
+             return f"[MOCK ANSWER based on Context] Context excerpt: {context[:100]}... Question: {prompt}"
+
+        if self.provider == "gemini":
+             try:
+                  import google.generativeai as genai
+                  genai.configure(api_key=self.api_key)
+                  
+                  # Auto-discover available models once
+                  if not hasattr(self, 'available_gemini_models'):
+                       try:
+                            self.available_gemini_models = [m.name.split('/')[-1] for m in genai.list_models()]
+                       except Exception:
+                            self.available_gemini_models = ['gemini-1.5-flash']
+
+                  candidates = ['gemini-2.5-flash', 'gemini-1.5-flash', 'gemini-1.5-pro', 'gemini-1.0-pro']
+                  test_models = [c for c in candidates if c in self.available_gemini_models]
+                  if not test_models:
+                       test_models = ['gemini-1.5-flash']
+
+                  last_error = ""
+                  for model_name in test_models:
+                       try:
+                            model = genai.GenerativeModel(model_name)
+                            system_prompt = "You are an engaging and helpful study assistant. Use the provided context to answer questions clearly, conversationally, and naturally."
+                            full_prompt = f"{system_prompt}\n\nContext:\n{context}\n\nQuestion:\n{prompt}"
+                            response = model.generate_content(full_prompt)
+                            return response.text
+                       except Exception as e:
+                            last_error = str(e)
+                            if "429" in last_error or "quota" in last_error.lower():
+                                 print(f"[FALLBACK] Gemini Model {model_name} quota exceeded. Trying next...")
+                                 continue
+                            return f"Gemini Error on {model_name}: {last_error}"
+                  
+                  return f"Gemini Error: All candidates failed. Last error: {last_error}"
+             except Exception as e:
+                  return f"Gemini setup error: {str(e)}"
+
+        elif self.provider == "ollama":
+             try:
+                  import httpx
+                  system_prompt = "You are an engaging and helpful study assistant. Use the provided context to answer questions clearly, conversationally, and naturally."
+                  payload = {
+                      "model": os.getenv("OLLAMA_MODEL", "gemma"),
+                      "messages": [
+                          {"role": "system", "content": system_prompt},
+                          {"role": "user", "content": f"Context: {context}\n\nQuestion: {prompt}"}
+                      ],
+                      "stream": False
+                  }
+                  response = httpx.post(f"{os.getenv('OLLAMA_HOST', 'http://localhost:11434')}/api/chat", json=payload, timeout=60.0)
+                  return response.json()["message"]["content"]
+             except Exception as e:
+                  return f"Ollama Error: {str(e)}"
+
+        try:
+             from openai import OpenAI
+             client = OpenAI(api_key=self.api_key)
+             system_prompt = "You are an engaging and helpful study assistant. Use the provided context to answer questions clearly, conversationally, and naturally."
+             response = client.chat.completions.create(
+                 model="gpt-3.5-turbo",
+                 messages=[
+                     {"role": "system", "content": system_prompt},
+                     {"role": "user", "content": f"Context: {context}\n\nQuestion: {prompt}"}
+                 ]
+             )
+             return response.choices[0].message.content
+        except Exception:
+             return "Error generating response from LLM."
+
+rag_pipeline = RAGPipeline()

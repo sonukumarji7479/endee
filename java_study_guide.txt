@@ -1,0 +1,76 @@
+Topic: Comprehensive Java Programming (Study Guide)
+-------------------------------------------------------
+
+1. INTRODUCTION TO JAVA
+Java is a high-level, class-based, object-oriented programming language designed to have as few implementation dependencies as possible. 
+Key Principles: "Write Once, Run Anywhere" (WORA), meaning compiled Java code can run on all platforms that support Java without the need for recompilation.
+
+The Java environment consists of:
+- JDK (Java Development Kit): Contains tools for developing and running Java programs (includes JRE + compiler).
+- JRE (Java Runtime Environment): Provides libraries and the JVM to run applications.
+- JVM (Java Virtual Machine): An abstract machine that executes Java bytecode.
+
+2. VARIABLES AND DATA TYPES
+Java is strongly typed. Data types are divided into:
+- Primitive Types: byte, short, int, long (integers), float, double (floating-point), boolean (true/false), char (single character).
+- Reference Types: Objects, Strings, Arrays. 
+Example declaration: `int score = 100; String name = "JavaBot";`
+
+3. OBJECT-ORIENTED PROGRAMMING (OOP)
+Java strictly follows 4 core pillars of OOP:
+
+A. Encapsulation:
+Hiding internal data and restricting direct access by using `private` access modifiers and providing `public getter and setter` methods.
+Example: 
+```java
+public class Account {
+    private double balance;
+    public double getBalance() { return balance; }
+}
+```
+
+B. Inheritance:
+Mechanism where one class (child/subclass) acquires properties (fields and methods) of another (parent/superclass) using the `extends` keyword.
+Example: `class Dog extends Animal { }`
+
+C. Polymorphism:
+Ability of a variable, function, or object to take on multiple forms.
+- Compile-time (Overloading): Same method name, different parameters.
+- Runtime (Overriding): Child class provides a specific implementation of a method already provided by its parent.
+
+D. Abstraction:
+Hiding complex implementation details and showing only essential features of an object. Achieved using `abstract classes` or `interfaces`.
+Example: `interface Runnable { void run(); }`
+
+4. CONTROL FLOW STATEMENTS
+- Decision Making: `if-else`, `switch`
+- Loops: `for`, `while`, `do-while`, `for-each`
+Example loops node:
+```java
+for (int i = 0; i < 5; i++) {
+    System.out.println(i);
+}
+```
+
+5. EXCEPTION HANDLING
+Mechanism to handle runtime errors (like DivisionByZero) so flow doesn't crash.
+Keywords: `try`, `catch`, `finally`, `throw`, `throws`.
+```java
+try {
+    int result = 10 / 0;
+} catch (ArithmeticException e) {
+    System.out.println("Cannot divide by zero!");
+}
+```
+
+6. COLLECTIONS FRAMEWORK
+A architecture to store and manipulate a group of objects.
+- List: Ordered collection allowing duplicates (`ArrayList`, `LinkedList`).
+- Set: Unordered collection prohibiting duplicates (`HashSet`).
+- Map: Stores key-value pairs (`HashMap`).
+
+Exercise Questions to test:
+- What is the difference between JDK, JRE, and JVM?
+- Explain the 4 pillars of OOP with examples.
+- What are Primitive data types in Java?
+- How does Exception Handling work using try-catch?

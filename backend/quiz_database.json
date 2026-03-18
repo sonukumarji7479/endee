@@ -1,0 +1,2130 @@
+{
+    "Java": [
+        {
+            "question": "Which of the following statements is true about the Java Virtual Machine (JVM)?",
+            "options": [
+                "A. It compiles Java source code (.java files) into bytecode (.class files).",
+                "B. It executes Java bytecode (.class files).",
+                "C. It is a development kit that includes tools like compilers and debuggers.",
+                "D. It provides the core API for Java applications."
+            ],
+            "answer": "B. It executes Java bytecode (.class files).",
+            "explanation": "The JVM is an abstract machine that provides a runtime environment in which Java bytecode can be executed. The Java compiler (part of JDK) compiles source code into bytecode, and the JRE contains the JVM."
+        },
+        {
+            "question": "What is the primary purpose of the 'final' keyword when applied to a variable in Java?",
+            "options": [
+                "A. It makes the variable accessible only within the class it's declared in.",
+                "B. It indicates that the variable's value cannot be changed once initialized.",
+                "C. It means the variable will be shared by all instances of the class.",
+                "D. It marks the variable for garbage collection after use."
+            ],
+            "answer": "B. It indicates that the variable's value cannot be changed once initialized.",
+            "explanation": "When 'final' is applied to a variable, it makes it a constant, meaning its value can only be assigned once and cannot be reassigned thereafter. For objects, it means the reference cannot change, not the object's internal state."
+        },
+        {
+            "question": "Which access modifier allows a member (method or variable) to be accessed from any class within the same package, and also by subclasses in other packages?",
+            "options": [
+                "A. private",
+                "B. default (no modifier)",
+                "C. protected",
+                "D. public"
+            ],
+            "answer": "C. protected",
+            "explanation": "The 'protected' access modifier makes members accessible within the same package and by subclasses (even if those subclasses are in different packages). 'Private' is only within the class, 'default' is within the package, and 'public' is everywhere."
+        },
+        {
+            "question": "What happens if a method is declared 'abstract' in a Java class?",
+            "options": [
+                "A. The method must be declared 'static' as well.",
+                "B. The method must provide an implementation within the abstract class.",
+                "C. The class containing it must also be declared 'abstract'.",
+                "D. It can only be called from other abstract methods."
+            ],
+            "answer": "C. The class containing it must also be declared 'abstract'.",
+            "explanation": "An abstract method is a method that is declared without an implementation (without a body). If a class contains one or more abstract methods, the class itself must be declared 'abstract'. Abstract methods are meant to be implemented by concrete subclasses."
+        },
+        {
+            "question": "Which of the following accurately describes Java's String objects?",
+            "options": [
+                "A. They are mutable, meaning their content can be changed after creation.",
+                "B. They are stored on the stack memory.",
+                "C. They are immutable, meaning their content cannot be changed after creation.",
+                "D. They are primitive data types."
+            ],
+            "answer": "C. They are immutable, meaning their content cannot be changed after creation.",
+            "explanation": "In Java, String objects are immutable. Any operation that appears to modify a String (like concatenation) actually creates a new String object. Strings are objects and are stored on the heap, not the stack, and are not primitive types."
+        },
+        {
+            "question": "What is the correct way to handle an exception that might occur in a block of code, ensuring that certain cleanup code always executes regardless of whether an exception occurred?",
+            "options": [
+                "A. Using a 'try-catch' block.",
+                "B. Using a 'try-finally' block.",
+                "C. Using a 'try-catch-finally' block.",
+                "D. Using a 'throws' clause in the method signature."
+            ],
+            "answer": "C. Using a 'try-catch-finally' block.",
+            "explanation": "The 'finally' block in a 'try-catch-finally' construct is guaranteed to execute whether an exception is caught or not, or even if no exception occurred. This makes it ideal for cleanup code like closing resources."
+        },
+        {
+            "question": "Which Java collection interface ensures that elements are unique and does not maintain insertion order?",
+            "options": [
+                "A. List",
+                "B. Set",
+                "C. Map",
+                "D. Queue"
+            ],
+            "answer": "B. Set",
+            "explanation": "The 'Set' interface in Java collections guarantees that all elements within it are unique. Implementations like 'HashSet' do not maintain insertion order, while 'LinkedHashSet' maintains it."
+        },
+        {
+            "question": "What is the purpose of the 'static' keyword when applied to a method in Java?",
+            "options": [
+                "A. It means the method can only be overridden by subclasses.",
+                "B. It indicates that the method belongs to the class itself, rather than to any specific instance.",
+                "C. It prevents the method from throwing any exceptions.",
+                "D. It ensures the method runs on a separate thread."
+            ],
+            "answer": "B. It indicates that the method belongs to the class itself, rather than to any specific instance.",
+            "explanation": "A 'static' method belongs to the class and can be called directly using the class name, without creating an object of the class. It cannot access non-static instance members directly."
+        },
+        {
+            "question": "Which of the following is NOT a principle of Object-Oriented Programming (OOP)?",
+            "options": [
+                "A. Encapsulation",
+                "B. Polymorphism",
+                "C. Inheritance",
+                "D. Compilation"
+            ],
+            "answer": "D. Compilation",
+            "explanation": "Encapsulation, Polymorphism, and Inheritance are core principles of Object-Oriented Programming (along with Abstraction). Compilation is a step in the software development process, not an OOP principle."
+        },
+        {
+            "question": "What does the Java Garbage Collector primarily do?",
+            "options": [
+                "A. It manages the allocation of new objects in memory.",
+                "B. It automatically frees up memory by deleting objects that are no longer referenced.",
+                "C. It encrypts sensitive data before storing it in memory.",
+                "D. It optimizes code performance by reordering instructions during runtime."
+            ],
+            "answer": "B. It automatically frees up memory by deleting objects that are no longer referenced.",
+            "explanation": "The Java Garbage Collector is responsible for automatically managing memory. It identifies objects that are no longer reachable (referenced) by the running program and reclaims the memory they occupy, preventing memory leaks and simplifying memory management for developers."
+        }
+    ],
+    "Python": [
+        {
+            "question": "Which of the following is an immutable data type in Python?",
+            "options": [
+                "A) List",
+                "B) Dictionary",
+                "C) Tuple",
+                "D) Set"
+            ],
+            "answer": "C) Tuple",
+            "explanation": "Tuples are ordered, immutable sequences in Python. This means once a tuple is created, its elements cannot be changed. Lists, dictionaries, and sets are all mutable."
+        },
+        {
+            "question": "What is the output of the following Python code snippet?\n```python\nfor i in range(3):\n    print(i)\n```",
+            "options": [
+                "A) 0 1 2",
+                "B) 1 2 3",
+                "C) 0 1 2 3",
+                "D) Error"
+            ],
+            "answer": "A) 0 1 2",
+            "explanation": "The `range(3)` function generates a sequence of numbers starting from 0 up to (but not including) 3. So, it produces 0, 1, and 2. The loop iterates through these numbers, printing each one on a new line."
+        },
+        {
+            "question": "Which keyword is used to define a function in Python?",
+            "options": [
+                "A) func",
+                "B) define",
+                "C) def",
+                "D) function"
+            ],
+            "answer": "C) def",
+            "explanation": "In Python, the `def` keyword is used to define (or declare) a function. It is followed by the function name, parentheses for parameters, and a colon."
+        },
+        {
+            "question": "What is the result of the following list comprehension?\n`[x * 2 for x in range(3)]`",
+            "options": [
+                "A) [0, 1, 2]",
+                "B) [0, 2, 4]",
+                "C) [0, 1, 2, 3]",
+                "D) [1, 2, 3]"
+            ],
+            "answer": "B) [0, 2, 4]",
+            "explanation": "The `range(3)` generates numbers 0, 1, and 2. The list comprehension iterates through these numbers, multiplying each by 2. So, `0*2=0`, `1*2=2`, and `2*2=4`, resulting in the list `[0, 2, 4]`."
+        },
+        {
+            "question": "How do you access the value associated with the key 'name' in a dictionary named `person = {'name': 'Alice', 'age': 30}`?",
+            "options": [
+                "A) person('name')",
+                "B) person.name",
+                "C) person['name']",
+                "D) person.value('name')"
+            ],
+            "answer": "C) person['name']",
+            "explanation": "Dictionary values in Python are accessed using their corresponding keys enclosed in square brackets. `person['name']` directly retrieves the value 'Alice'."
+        },
+        {
+            "question": "Which of these is a correct way to define a simple class named `Car` in Python?",
+            "options": [
+                "A) class Car:",
+                "B) define class Car:",
+                "C) class Car()",
+                "D) create class Car:"
+            ],
+            "answer": "A) class Car:",
+            "explanation": "Classes in Python are defined using the `class` keyword, followed by the class name (conventionally CamelCase), and a colon."
+        },
+        {
+            "question": "Which keyword is used to handle exceptions in Python?",
+            "options": [
+                "A) catch",
+                "B) throws",
+                "C) except",
+                "D) handle"
+            ],
+            "answer": "C) except",
+            "explanation": "Python uses the `try` and `except` keywords to implement error handling. Code that might raise an exception is placed in the `try` block, and the code to handle the exception is in the `except` block."
+        },
+        {
+            "question": "How do you import the `math` module in Python?",
+            "options": [
+                "A) include math",
+                "B) require math",
+                "C) import math",
+                "D) use math"
+            ],
+            "answer": "C) import math",
+            "explanation": "The `import` statement is used to bring modules, packages, or specific objects from them into the current Python script's namespace, making their functionalities available."
+        },
+        {
+            "question": "What is the primary purpose of an f-string (formatted string literal) in Python?",
+            "options": [
+                "A) To define multiline strings",
+                "B) To execute shell commands",
+                "C) To embed expressions inside string literals",
+                "D) To convert strings to integers"
+            ],
+            "answer": "C) To embed expressions inside string literals",
+            "explanation": "F-strings provide a concise and readable way to embed Python expressions directly inside string literals by prefixing the string with `f` or `F`."
+        },
+        {
+            "question": "Which of the following keywords is used to create a generator function in Python?",
+            "options": [
+                "A) return",
+                "B) yield",
+                "C) generate",
+                "D) next"
+            ],
+            "answer": "B) yield",
+            "explanation": "A generator function in Python uses the `yield` keyword instead of `return`. When `yield` is encountered, the function's state is saved, and a value is produced. The function can then be resumed later to produce the next value."
+        }
+    ],
+    "C/C++": [
+        {
+            "question": "Which of the following C++ features enables a single interface to represent different types?",
+            "options": [
+                "A) Encapsulation",
+                "B) Inheritance",
+                "C) Polymorphism",
+                "D) Abstraction"
+            ],
+            "answer": "C) Polymorphism",
+            "explanation": "Polymorphism, meaning 'many forms', allows objects of different classes to be treated as objects of a common base class. This enables a single interface (e.g., a base class pointer or reference) to call methods that have different implementations in derived classes."
+        },
+        {
+            "question": "What is the primary purpose of the `new` operator in C++?",
+            "options": [
+                "A) To create a new data type.",
+                "B) To allocate memory on the stack.",
+                "C) To allocate memory on the heap (free store) for an object and return a pointer to it.",
+                "D) To declare a new variable."
+            ],
+            "answer": "C) To allocate memory on the heap (free store) for an object and return a pointer to it.",
+            "explanation": "The `new` operator is used for dynamic memory allocation in C++. It allocates memory from the heap for an object and returns a pointer to the newly allocated and constructed object. It is paired with `delete` for deallocation."
+        },
+        {
+            "question": "In C, which keyword is used to declare a variable whose value cannot be modified after initialization?",
+            "options": [
+                "A) `static`",
+                "B) `volatile`",
+                "C) `const`",
+                "D) `register`"
+            ],
+            "answer": "C) `const`",
+            "explanation": "The `const` keyword in C (and C++) is used to declare constants. Once a `const` variable is initialized, its value cannot be changed during program execution, providing read-only access."
+        },
+        {
+            "question": "What is the output of the following C++ code snippet?\n```cpp\nint a = 5;\nint* p = &a;\n*p = 10;\nstd::cout << a;\n```",
+            "options": [
+                "A) 5",
+                "B) 10",
+                "C) Address of a",
+                "D) Compiler error"
+            ],
+            "answer": "B) 10",
+            "explanation": "The pointer `p` is initialized with the address of `a`. The expression `*p = 10;` dereferences the pointer `p` and assigns the value 10 to the memory location it points to, which is `a`. Therefore, `a` becomes 10, and that value is printed."
+        },
+        {
+            "question": "Which of the following is NOT a valid access specifier in C++ class inheritance?",
+            "options": [
+                "A) `public`",
+                "B) `protected`",
+                "C) `private`",
+                "D) `friend`"
+            ],
+            "answer": "D) `friend`",
+            "explanation": "`public`, `protected`, and `private` are the three valid access specifiers in C++ that control visibility of members within a class and during inheritance. `friend` is a keyword used to grant special access to non-member functions or classes, but it is not an access specifier for inheritance."
+        },
+        {
+            "question": "What is the purpose of the `break` statement in C/C++?",
+            "options": [
+                "A) To terminate the program.",
+                "B) To exit the current loop or switch statement.",
+                "C) To skip the rest of the current iteration of a loop.",
+                "D) To jump to a specific label within the current function."
+            ],
+            "answer": "B) To exit the current loop or switch statement.",
+            "explanation": "The `break` statement is used to terminate the innermost enclosing `while`, `do-while`, `for`, or `switch` statement immediately. Control passes to the statement immediately following the terminated statement."
+        },
+        {
+            "question": "Which header file must be included to use `std::vector` in C++?",
+            "options": [
+                "A) `<list>`",
+                "B) `<array>`",
+                "C) `<vector>`",
+                "D) `<iostream>`"
+            ],
+            "answer": "C) `<vector>`",
+            "explanation": "The `std::vector` container is part of the C++ Standard Template Library (STL) and its definition is found in the `<vector>` header file. Including `<iostream>` is for input/output operations, not for `std::vector` itself."
+        },
+        {
+            "question": "In C, what does `sizeof()` operator return?",
+            "options": [
+                "A) The number of bits a data type or variable occupies.",
+                "B) The number of bytes a data type or variable occupies.",
+                "C) The memory address of a variable.",
+                "D) The maximum value a data type can hold."
+            ],
+            "answer": "B) The number of bytes a data type or variable occupies.",
+            "explanation": "The `sizeof()` operator in C and C++ returns the size of its operand in bytes. The result is of type `size_t`."
+        },
+        {
+            "question": "Which of the following is a key feature of C++ templates?",
+            "options": [
+                "A) They allow runtime polymorphism.",
+                "B) They provide compile-time polymorphism through generic programming.",
+                "C) They are used for memory allocation and deallocation.",
+                "D) They define abstract base classes."
+            ],
+            "answer": "B) They provide compile-time polymorphism through generic programming.",
+            "explanation": "Templates in C++ enable generic programming, allowing functions and classes to operate with generic types. The actual type is determined at compile-time when the template is instantiated, leading to compile-time polymorphism."
+        },
+        {
+            "question": "What is the main difference between `malloc()` and `new` in C++?",
+            "options": [
+                "A) `malloc()` allocates memory on the stack, `new` on the heap.",
+                "B) `malloc()` returns `void*`, `new` returns a typed pointer; `new` also calls constructors.",
+                "C) `malloc()` is for C, `new` is for C++ only; they are otherwise identical.",
+                "D) `malloc()` can throw exceptions, `new` cannot."
+            ],
+            "answer": "B) `malloc()` returns `void*`, `new` returns a typed pointer; `new` also calls constructors.",
+            "explanation": "`malloc()` (from C, available in C++) returns a `void*` and only allocates raw memory; it does not call constructors. `new` (C++ specific) returns a typed pointer, allocates memory, and crucially, calls the constructor of the object being created. `new` can also throw `std::bad_alloc` on failure, while `malloc()` returns `NULL`."
+        }
+    ],
+    "DSA": [
+        {
+            "question": "What is the time complexity for accessing an element at a specific index in a dynamic array (like ArrayList in Java or list in Python)?",
+            "options": [
+                "O(1)",
+                "O(log n)",
+                "O(n)",
+                "O(n log n)"
+            ],
+            "answer": "O(1)",
+            "explanation": "Accessing an element by index in an array is a direct memory lookup operation, which takes constant time regardless of the array's size."
+        },
+        {
+            "question": "What is the time complexity for inserting an element at the beginning of a singly linked list?",
+            "options": [
+                "O(1)",
+                "O(log n)",
+                "O(n)",
+                "O(n^2)"
+            ],
+            "answer": "O(1)",
+            "explanation": "To insert at the beginning of a singly linked list, you only need to create a new node and update the head pointer to point to the new node, and the new node's next pointer to the old head. This involves a constant number of operations."
+        },
+        {
+            "question": "Which principle does a Stack follow?",
+            "options": [
+                "First-In, First-Out (FIFO)",
+                "Last-In, First-Out (LIFO)",
+                "Last-In, Last-Out (LILO)",
+                "First-In, Last-Out (FILO)"
+            ],
+            "answer": "Last-In, First-Out (LIFO)",
+            "explanation": "A stack allows elements to be added (pushed) and removed (popped) only from one end, typically called the 'top'. Therefore, the last element added is always the first one to be removed."
+        },
+        {
+            "question": "Which operation is used to add an element to the rear of a Queue?",
+            "options": [
+                "Push",
+                "Pop",
+                "Enqueue",
+                "Dequeue"
+            ],
+            "answer": "Enqueue",
+            "explanation": "In a queue, elements are added to the rear (end) using the 'Enqueue' operation and removed from the front using the 'Dequeue' operation. Push and Pop are operations associated with stacks."
+        },
+        {
+            "question": "In a Binary Search Tree (BST), for any given node, what is true about its left child's value and right child's value?",
+            "options": [
+                "The left child's value is greater than the node's value, and the right child's value is less than the node's value.",
+                "The left child's value is less than or equal to the node's value, and the right child's value is greater than or equal to the node's value.",
+                "The left child's value is less than the node's value, and the right child's value is greater than the node's value.",
+                "Both children's values must be less than the node's value."
+            ],
+            "answer": "The left child's value is less than the node's value, and the right child's value is greater than the node's value.",
+            "explanation": "The fundamental property of a Binary Search Tree (BST) is that for any node, all values in its left subtree are less than the node's value, and all values in its right subtree are greater than the node's value."
+        },
+        {
+            "question": "Which graph traversal algorithm uses a queue to keep track of the next vertices to visit?",
+            "options": [
+                "Depth-First Search (DFS)",
+                "Breadth-First Search (BFS)",
+                "Dijkstra's Algorithm",
+                "Prim's Algorithm"
+            ],
+            "answer": "Breadth-First Search (BFS)",
+            "explanation": "Breadth-First Search (BFS) explores the graph level by level, visiting all neighbors of a node before moving to the next level. This level-by-level exploration is naturally managed using a queue data structure."
+        },
+        {
+            "question": "Which of the following is NOT a common method for resolving collisions in a hash table?",
+            "options": [
+                "Separate Chaining",
+                "Open Addressing",
+                "Quadratic Probing",
+                "Binary Search"
+            ],
+            "answer": "Binary Search",
+            "explanation": "Separate Chaining and Open Addressing (which includes Linear Probing, Quadratic Probing, and Double Hashing) are standard techniques for handling collisions in hash tables. Binary Search is an algorithm for finding an item in a sorted list, not a collision resolution method."
+        },
+        {
+            "question": "What is the theoretical lower bound for the worst-case time complexity of any comparison-based sorting algorithm?",
+            "options": [
+                "O(n)",
+                "O(n log n)",
+                "O(n^2)",
+                "O(log n)"
+            ],
+            "answer": "O(n log n)",
+            "explanation": "According to the decision tree model, any comparison-based sorting algorithm requires at least O(n log n) comparisons in the worst case to sort 'n' elements."
+        },
+        {
+            "question": "What is a prerequisite for successfully applying Binary Search on a list of elements?",
+            "options": [
+                "The list must contain unique elements.",
+                "The list must be implemented as a linked list.",
+                "The list must be sorted.",
+                "The list must have an even number of elements."
+            ],
+            "answer": "The list must be sorted.",
+            "explanation": "Binary Search works by repeatedly dividing the search interval in half. This process relies on the elements being in a specific order (sorted) to determine which half to continue searching in."
+        },
+        {
+            "question": "Which of the following best describes an Abstract Data Type (ADT)?",
+            "options": [
+                "A concrete implementation of a data structure.",
+                "A specific algorithm for sorting data.",
+                "A mathematical model for data types that specifies the operations on data but not their implementation.",
+                "A programming language feature for generic types."
+            ],
+            "answer": "A mathematical model for data types that specifies the operations on data but not their implementation.",
+            "explanation": "An Abstract Data Type (ADT) defines the logical properties and operations of a data type independently of any specific implementation. It focuses on 'what' the data type does rather than 'how' it does it."
+        }
+    ],
+    "Web Development": [
+        {
+            "question": "What is the primary purpose of HTML in web development?",
+            "options": [
+                "A. To style web pages",
+                "B. To add interactivity to web pages",
+                "C. To structure content on web pages",
+                "D. To manage server-side logic"
+            ],
+            "answer": "C. To structure content on web pages",
+            "explanation": "HTML (HyperText Markup Language) is used to define the structure and content of web pages using various tags and elements."
+        },
+        {
+            "question": "Which CSS property is used to change the text color of an element?",
+            "options": [
+                "A. background-color",
+                "B. font-color",
+                "C. color",
+                "D. text-style"
+            ],
+            "answer": "C. color",
+            "explanation": "The 'color' property in CSS is specifically used to set the foreground color of an element's text."
+        },
+        {
+            "question": "Which JavaScript method is used to select an HTML element by its ID?",
+            "options": [
+                "A. getElementByClass()",
+                "B. querySelectorAll()",
+                "C. getElementById()",
+                "D. findElement()"
+            ],
+            "answer": "C. getElementById()",
+            "explanation": "The 'document.getElementById()' method is a standard JavaScript function used to retrieve a reference to the first object with the specified ID."
+        },
+        {
+            "question": "Which of the following is primarily a server-side (backend) programming language?",
+            "options": [
+                "A. HTML",
+                "B. CSS",
+                "C. Python",
+                "D. JavaScript (client-side)"
+            ],
+            "answer": "C. Python",
+            "explanation": "While JavaScript can be used on the server-side with Node.js, Python is widely known and used primarily as a server-side language for web development, among other applications. HTML and CSS are client-side markup and styling languages."
+        },
+        {
+            "question": "What is the main purpose of a 'responsive design' in web development?",
+            "options": [
+                "A. To make web pages load faster",
+                "B. To optimize websites for search engines",
+                "C. To ensure websites adapt to different screen sizes and devices",
+                "D. To create interactive animations"
+            ],
+            "answer": "C. To ensure websites adapt to different screen sizes and devices",
+            "explanation": "Responsive web design is an approach to web design that makes web pages render well on a variety of devices and window or screen sizes from minimum to maximum display size."
+        },
+        {
+            "question": "Which HTTP method is typically used to retrieve data from a server?",
+            "options": [
+                "A. POST",
+                "B. PUT",
+                "C. DELETE",
+                "D. GET"
+            ],
+            "answer": "D. GET",
+            "explanation": "The GET method is used to request data from a specified resource. It should only be used to retrieve data, and not to modify it."
+        },
+        {
+            "question": "What does DOM stand for in the context of web development?",
+            "options": [
+                "A. Document Object Model",
+                "B. Data Output Module",
+                "C. Design Order Markup",
+                "D. Dynamic Object Management"
+            ],
+            "answer": "A. Document Object Model",
+            "explanation": "The Document Object Model (DOM) is a programming interface for HTML and XML documents. It represents the page so that programs can change the document structure, style, and content."
+        },
+        {
+            "question": "Which of these is a popular JavaScript library/framework for building user interfaces?",
+            "options": [
+                "A. Laravel",
+                "B. React",
+                "C. Django",
+                "D. Ruby on Rails"
+            ],
+            "answer": "B. React",
+            "explanation": "React (often referred to as React.js or ReactJS) is a free and open-source front-end JavaScript library for building user interfaces based on UI components. Laravel, Django, and Ruby on Rails are backend frameworks."
+        },
+        {
+            "question": "What is the purpose of Git in web development?",
+            "options": [
+                "A. To manage project dependencies",
+                "B. To version control code and track changes",
+                "C. To deploy applications to a server",
+                "D. To compress image files for the web"
+            ],
+            "answer": "B. To version control code and track changes",
+            "explanation": "Git is a distributed version control system that tracks changes in any set of computer files, usually used for coordinating work among programmers collaboratively developing source code during software development."
+        },
+        {
+            "question": "In a client-server architecture, what is the 'client' typically responsible for?",
+            "options": [
+                "A. Storing the main database",
+                "B. Processing business logic on the server",
+                "C. Rendering the user interface and handling user input",
+                "D. Managing server infrastructure"
+            ],
+            "answer": "C. Rendering the user interface and handling user input",
+            "explanation": "The client (e.g., a web browser) is responsible for displaying the user interface, taking user input, and sending requests to the server, then displaying the server's responses."
+        }
+    ],
+    "Artificial Intelligence": [
+        {
+            "question": "Which of the following is considered a foundational problem in Artificial Intelligence that deals with machines understanding and interpreting human language?",
+            "options": [
+                "A. Computer Vision",
+                "B. Natural Language Processing",
+                "C. Robotics",
+                "D. Expert Systems"
+            ],
+            "answer": "B. Natural Language Processing",
+            "explanation": "Natural Language Processing (NLP) is a branch of AI that enables computers to understand, interpret, and generate human language. Computer Vision deals with images, Robotics with physical robots, and Expert Systems with specialized knowledge bases."
+        },
+        {
+            "question": "What kind of AI problem would involve a machine learning to play chess against a human opponent, where the machine learns optimal moves through experience?",
+            "options": [
+                "A. Supervised Learning",
+                "B. Unsupervised Learning",
+                "C. Reinforcement Learning",
+                "D. Transfer Learning"
+            ],
+            "answer": "C. Reinforcement Learning",
+            "explanation": "Reinforcement Learning is a type of machine learning where an agent learns to make decisions by performing actions in an environment and receiving rewards or penalties, similar to how one learns to play a game through trial and error."
+        },
+        {
+            "question": "Which algorithm is primarily used for classification and regression tasks by finding a hyperplane that best separates data points of different classes?",
+            "options": [
+                "A. K-Means Clustering",
+                "B. Principal Component Analysis (PCA)",
+                "C. Support Vector Machine (SVM)",
+                "D. Apriori Algorithm"
+            ],
+            "answer": "C. Support Vector Machine (SVM)",
+            "explanation": "Support Vector Machines (SVMs) are supervised learning models with associated learning algorithms that analyze data for classification and regression analysis. They find an optimal hyperplane that maximizes the margin between different classes."
+        },
+        {
+            "question": "What is the primary purpose of a 'hidden layer' in a Artificial Neural Network?",
+            "options": [
+                "A. To directly connect input and output layers",
+                "B. To perform complex computations and learn features from the input data",
+                "C. To store the final output of the network",
+                "D. To determine the initial weights of the network"
+            ],
+            "answer": "B. To perform complex computations and learn features from the input data",
+            "explanation": "Hidden layers in a neural network are responsible for learning complex patterns and features from the input data through a series of non-linear transformations before passing them to the output layer."
+        },
+        {
+            "question": "Which concept describes an AI system's ability to appear to exhibit intelligent behavior without actually possessing consciousness or true understanding?",
+            "options": [
+                "A. Strong AI",
+                "B. General AI",
+                "C. Weak AI",
+                "D. Superintelligence"
+            ],
+            "answer": "C. Weak AI",
+            "explanation": "Weak AI (or Narrow AI) refers to AI systems designed and trained for a particular task. They can perform specific intelligent tasks but do not possess general cognitive abilities, consciousness, or true understanding, unlike what Strong AI envisions."
+        },
+        {
+            "question": "In the context of machine learning, what does 'overfitting' refer to?",
+            "options": [
+                "A. A model that performs well on training data but poorly on unseen data",
+                "B. A model that performs poorly on both training and unseen data",
+                "C. A model that is too simple to capture the underlying patterns in the data",
+                "D. A model that uses too few features to make accurate predictions"
+            ],
+            "answer": "A. A model that performs well on training data but poorly on unseen data",
+            "explanation": "Overfitting occurs when a machine learning model learns the training data too well, including its noise and outliers, making it perform poorly when presented with new, unseen data because it fails to generalize."
+        },
+        {
+            "question": "Which subfield of AI focuses on enabling machines to 'see' and interpret visual information from the real world?",
+            "options": [
+                "A. Robotics",
+                "B. Natural Language Processing",
+                "C. Expert Systems",
+                "D. Computer Vision"
+            ],
+            "answer": "D. Computer Vision",
+            "explanation": "Computer Vision is a field of AI that trains computers to interpret and understand the visual world. It involves tasks like object detection, image recognition, and video analysis."
+        },
+        {
+            "question": "What is a 'chatbot' primarily designed to do?",
+            "options": [
+                "A. Control robotic movements",
+                "B. Predict stock market trends",
+                "C. Simulate human conversation through text or voice",
+                "D. Analyze large datasets for anomalies"
+            ],
+            "answer": "C. Simulate human conversation through text or voice",
+            "explanation": "A chatbot is an AI program designed to simulate human conversation, either through text or voice, allowing users to interact with a system in a conversational manner to get information or perform tasks."
+        },
+        {
+            "question": "Which search algorithm explores all neighbor nodes at the present depth level before moving on to nodes at the next depth level?",
+            "options": [
+                "A. Depth-First Search (DFS)",
+                "B. Breadth-First Search (BFS)",
+                "C. A* Search",
+                "D. Hill Climbing"
+            ],
+            "answer": "B. Breadth-First Search (BFS)",
+            "explanation": "Breadth-First Search (BFS) is an algorithm for traversing or searching tree or graph data structures. It systematically explores all nodes at a given depth before moving to the next depth level."
+        },
+        {
+            "question": "What concept refers to an AI's ability to perform any intellectual task that a human can, across a wide range of domains?",
+            "options": [
+                "A. Narrow AI",
+                "B. Artificial General Intelligence (AGI)",
+                "C. Machine Learning",
+                "D. Deep Learning"
+            ],
+            "answer": "B. Artificial General Intelligence (AGI)",
+            "explanation": "Artificial General Intelligence (AGI), often called 'Strong AI,' refers to AI that can understand, learn, and apply intelligence to any intellectual task a human being can, as opposed to Narrow AI which is specialized for specific tasks."
+        }
+    ],
+    "Machine Learning": [
+        {
+            "question": "Which type of machine learning involves training a model on a dataset that has already been labeled with the correct output?",
+            "options": [
+                "A. Unsupervised Learning",
+                "B. Reinforcement Learning",
+                "C. Supervised Learning",
+                "D. Semi-supervised Learning"
+            ],
+            "answer": "C. Supervised Learning",
+            "explanation": "Supervised learning uses labeled datasets to train algorithms that classify data or predict outcomes accurately. It requires input data and corresponding output labels."
+        },
+        {
+            "question": "What is the primary goal of clustering algorithms in machine learning?",
+            "options": [
+                "A. To predict a continuous output value.",
+                "B. To categorize data into predefined classes.",
+                "C. To group similar data points together without prior knowledge of the groups.",
+                "D. To find the optimal sequence of actions for an agent."
+            ],
+            "answer": "C. To group similar data points together without prior knowledge of the groups.",
+            "explanation": "Clustering is an unsupervised learning technique aimed at discovering inherent groupings in data. It organizes data points such that points in the same group (cluster) are more similar to each other than to those in other groups."
+        },
+        {
+            "question": "Which of the following describes the phenomenon where a model performs exceptionally well on training data but poorly on unseen test data?",
+            "options": [
+                "A. Underfitting",
+                "B. Generalization",
+                "C. Overfitting",
+                "D. Bias-Variance Tradeoff"
+            ],
+            "answer": "C. Overfitting",
+            "explanation": "Overfitting occurs when a model learns the training data and noise too well, capturing specific details and noise that do not generalize to new data, leading to poor performance on test sets."
+        },
+        {
+            "question": "In the context of evaluating a classification model, what does 'Precision' measure?",
+            "options": [
+                "A. The proportion of actual positives that were correctly identified.",
+                "B. The proportion of correctly predicted positive observations out of all predicted positives.",
+                "C. The proportion of actual negatives that were correctly identified.",
+                "D. The overall accuracy of the model across all classes."
+            ],
+            "answer": "B. The proportion of correctly predicted positive observations out of all predicted positives.",
+            "explanation": "Precision (also known as Positive Predictive Value) quantifies the accuracy of positive predictions. It is calculated as True Positives / (True Positives + False Positives)."
+        },
+        {
+            "question": "Which activation function is commonly used in the output layer of a multi-class classification neural network to produce probability distributions?",
+            "options": [
+                "A. ReLU (Rectified Linear Unit)",
+                "B. Sigmoid",
+                "C. Tanh (Hyperbolic Tangent)",
+                "D. Softmax"
+            ],
+            "answer": "D. Softmax",
+            "explanation": "The Softmax function takes an arbitrary vector of real numbers and transforms them into a probability distribution, where the sum of the probabilities is 1. This is ideal for multi-class classification outputs."
+        },
+        {
+            "question": "What is the purpose of 'Feature Scaling' in machine learning?",
+            "options": [
+                "A. To increase the number of features in the dataset.",
+                "B. To reduce the dimensionality of the dataset.",
+                "C. To normalize or standardize the range of independent variables or features.",
+                "D. To select the most important features for the model."
+            ],
+            "answer": "C. To normalize or standardize the range of independent variables or features.",
+            "explanation": "Feature scaling methods like standardization or normalization are used to bring all features into a similar range. This is crucial for algorithms sensitive to feature magnitudes, such as K-Nearest Neighbors, SVMs, or Gradient Descent-based models."
+        },
+        {
+            "question": "Which machine learning paradigm involves an agent learning to make decisions by performing actions in an environment and receiving rewards or penalties?",
+            "options": [
+                "A. Supervised Learning",
+                "B. Unsupervised Learning",
+                "C. Reinforcement Learning",
+                "D. Transfer Learning"
+            ],
+            "answer": "C. Reinforcement Learning",
+            "explanation": "Reinforcement Learning (RL) is an area of machine learning concerned with how intelligent agents ought to take actions in an environment in order to maximize the notion of cumulative reward."
+        },
+        {
+            "question": "What does 'Bias' refer to in the context of the Bias-Variance Tradeoff?",
+            "options": [
+                "A. The model's sensitivity to small fluctuations in the training data.",
+                "B. The error introduced by approximating a real-world problem, which may be complex, by a simplified model.",
+                "C. The variability of a model prediction for a given data point if it's trained on different subsets of the training data.",
+                "D. The model's ability to correctly classify unseen data."
+            ],
+            "answer": "B. The error introduced by approximating a real-world problem, which may be complex, by a simplified model.",
+            "explanation": "Bias refers to the error from erroneous assumptions in the learning algorithm. High bias can cause a model to miss the relevant relations between features and target outputs (underfitting)."
+        },
+        {
+            "question": "Which of the following algorithms is an example of an ensemble learning method?",
+            "options": [
+                "A. K-Means Clustering",
+                "B. Support Vector Machine (SVM)",
+                "C. Random Forest",
+                "D. Linear Regression"
+            ],
+            "answer": "C. Random Forest",
+            "explanation": "Random Forest is an ensemble learning method that operates by constructing a multitude of decision trees during training and outputting the class that is the mode of the classes (classification) or mean prediction (regression) of the individual trees."
+        },
+        {
+            "question": "What is the main advantage of using dimensionality reduction techniques like PCA?",
+            "options": [
+                "A. To introduce more features for better model performance.",
+                "B. To reduce the number of input variables while preserving important information.",
+                "C. To convert categorical features into numerical ones.",
+                "D. To improve model interpretability by making features more complex."
+            ],
+            "answer": "B. To reduce the number of input variables while preserving important information.",
+            "explanation": "Dimensionality reduction aims to reduce the number of random variables under consideration by obtaining a set of principal variables. This helps in overcoming the 'curse of dimensionality', reducing computational cost, and potentially improving model performance and interpretability."
+        }
+    ],
+    "Data Science": [
+        {
+            "question": "Which of the following machine learning tasks is best suited for predicting a continuous outcome variable?",
+            "options": [
+                "A. Classification",
+                "B. Clustering",
+                "C. Regression",
+                "D. Anomaly Detection"
+            ],
+            "answer": "C. Regression",
+            "explanation": "Regression models are used to predict a continuous numerical value, such as house prices or stock prices. Classification predicts discrete labels, clustering groups similar data points, and anomaly detection identifies unusual data."
+        },
+        {
+            "question": "What is the primary purpose of 'feature engineering' in a machine learning pipeline?",
+            "options": [
+                "A. To select the optimal algorithm for the model.",
+                "B. To tune the hyperparameters of the chosen model.",
+                "C. To create new input features from existing ones to improve model performance.",
+                "D. To evaluate the model's performance on unseen data."
+            ],
+            "answer": "C. To create new input features from existing ones to improve model performance.",
+            "explanation": "Feature engineering involves transforming raw data into features that better represent the underlying problem to the predictive models, thus improving model accuracy and interpretability. It's about designing better inputs for the model."
+        },
+        {
+            "question": "Which metric is most appropriate for evaluating a classification model when the classes are highly imbalanced?",
+            "options": [
+                "A. Accuracy",
+                "B. Precision",
+                "C. Recall",
+                "D. F1-Score"
+            ],
+            "answer": "D. F1-Score",
+            "explanation": "Accuracy can be misleading with imbalanced datasets. F1-Score is the harmonic mean of Precision and Recall, providing a better balance between the two and being more robust to class imbalance than accuracy alone. Precision and Recall focus on specific aspects (false positives vs. false negatives) but F1 combines both."
+        },
+        {
+            "question": "What problem does 'overfitting' describe in machine learning?",
+            "options": [
+                "A. The model is too simple and cannot capture the underlying patterns in the data.",
+                "B. The model performs well on training data but poorly on unseen data.",
+                "C. The model takes too long to train on the given dataset.",
+                "D. The dataset contains too many features, making it computationally expensive."
+            ],
+            "answer": "B. The model performs well on training data but poorly on unseen data.",
+            "explanation": "Overfitting occurs when a model learns the training data too well, including the noise, and consequently fails to generalize to new, unseen data. This results in high accuracy on the training set but low accuracy on the test set."
+        },
+        {
+            "question": "Which of the following techniques is commonly used for dimensionality reduction?",
+            "options": [
+                "A. K-Means Clustering",
+                "B. Principal Component Analysis (PCA)",
+                "C. Support Vector Machines (SVM)",
+                "D. Gradient Boosting"
+            ],
+            "answer": "B. Principal Component Analysis (PCA)",
+            "explanation": "PCA is a statistical procedure that uses an orthogonal transformation to convert a set of observations of possibly correlated variables into a set of values of linearly uncorrelated variables called principal components. Its primary use is for dimensionality reduction."
+        },
+        {
+            "question": "In the context of data preprocessing, what is the purpose of 'Min-Max Scaling'?",
+            "options": [
+                "A. To remove outliers from the dataset.",
+                "B. To convert categorical features into numerical ones.",
+                "C. To transform features to a specific range, typically [0, 1] or [-1, 1].",
+                "D. To fill in missing values using the mean or median."
+            ],
+            "answer": "C. To transform features to a specific range, typically [0, 1] or [-1, 1].",
+            "explanation": "Min-Max scaling (or normalization) rescales numerical features so that they fall within a specified range, often [0, 1]. This is useful for algorithms sensitive to the scale of features, like K-Nearest Neighbors or Neural Networks."
+        },
+        {
+            "question": "Which type of neural network is particularly well-suited for processing sequence data, such as natural language or time series?",
+            "options": [
+                "A. Convolutional Neural Network (CNN)",
+                "B. Recurrent Neural Network (RNN)",
+                "C. Multilayer Perceptron (MLP)",
+                "D. Autoencoder"
+            ],
+            "answer": "B. Recurrent Neural Network (RNN)",
+            "explanation": "RNNs are designed to recognize sequential characteristics of data and use their internal memory to process sequences of inputs. This makes them highly effective for tasks involving time series, natural language processing, and speech recognition, unlike CNNs (images), MLPs (general purpose feedforward), or Autoencoders (dimensionality reduction)."
+        },
+        {
+            "question": "What concept does the 'Bias-Variance Tradeoff' refer to in machine learning?",
+            "options": [
+                "A. The balance between model complexity and interpretability.",
+                "B. The relationship between the number of features and the training time.",
+                "C. The fundamental conflict between a model's ability to fit the training data well (low bias) and its ability to generalize to new data (low variance).",
+                "D. The amount of data required versus the computational resources available."
+            ],
+            "answer": "C. The fundamental conflict between a model's ability to fit the training data well (low bias) and its ability to generalize to new data (low variance).",
+            "explanation": "The bias-variance tradeoff is a central concept in supervised machine learning. Low bias typically means a complex model that might overfit, leading to high variance. Low variance usually means a simpler model that might underfit, leading to high bias. The goal is to find a balance."
+        },
+        {
+            "question": "Which of the following is an example of an unsupervised learning algorithm?",
+            "options": [
+                "A. Linear Regression",
+                "B. Decision Tree",
+                "C. K-Means Clustering",
+                "D. Support Vector Machine"
+            ],
+            "answer": "C. K-Means Clustering",
+            "explanation": "Unsupervised learning algorithms work with unlabeled data to find inherent structures or patterns. K-Means Clustering groups data points into clusters based on similarity without prior knowledge of the groups. Linear Regression, Decision Trees, and Support Vector Machines are all supervised learning algorithms that require labeled data."
+        },
+        {
+            "question": "When visualizing the distribution of a single continuous variable, which plot type is most appropriate?",
+            "options": [
+                "A. Scatter Plot",
+                "B. Bar Chart",
+                "C. Histogram",
+                "D. Pie Chart"
+            ],
+            "answer": "C. Histogram",
+            "explanation": "A histogram displays the distribution of a numerical variable by dividing it into bins and showing the frequency of data points within each bin. Scatter plots show relationships between two continuous variables, bar charts are for categorical data, and pie charts show proportions of a whole."
+        }
+    ],
+    "Cyber Security": [
+        {
+            "question": "Which of the following is NOT a core principle of the CIA Triad in Cyber Security?",
+            "options": [
+                "A. Confidentiality",
+                "B. Integrity",
+                "C. Authenticity",
+                "D. Availability"
+            ],
+            "answer": "C. Authenticity",
+            "explanation": "The CIA Triad stands for Confidentiality, Integrity, and Availability. Authenticity is important but not one of the three core principles of this foundational model."
+        },
+        {
+            "question": "What is phishing?",
+            "options": [
+                "A. A type of malware that encrypts files",
+                "B. A technique to trick users into revealing sensitive information",
+                "C. A method for securing network traffic",
+                "D. A process for auditing system logs"
+            ],
+            "answer": "B. A technique to trick users into revealing sensitive information",
+            "explanation": "Phishing is a social engineering technique where attackers send fraudulent communications, such as emails, appearing to be from a reputable source, to trick individuals into revealing sensitive information or clicking on malicious links."
+        },
+        {
+            "question": "What does a Firewall primarily do?",
+            "options": [
+                "A. Encrypt data on a hard drive",
+                "B. Filter network traffic based on security rules",
+                "C. Detect and remove viruses",
+                "D. Back up system files"
+            ],
+            "answer": "B. Filter network traffic based on security rules",
+            "explanation": "A firewall acts as a barrier between a trusted internal network and untrusted external networks (like the internet), controlling incoming and outgoing network traffic based on predetermined security rules."
+        },
+        {
+            "question": "Which attack involves an attacker attempting to overwhelm a system or network with traffic to disrupt its normal operations?",
+            "options": [
+                "A. SQL Injection",
+                "B. Cross-Site Scripting (XSS)",
+                "C. Denial-of-Service (DoS)",
+                "D. Man-in-the-Middle (MITM)"
+            ],
+            "answer": "C. Denial-of-Service (DoS)",
+            "explanation": "A Denial-of-Service (DoS) attack aims to make a machine or network resource unavailable to its intended users by temporarily or indefinitely disrupting services of a host connected to the Internet."
+        },
+        {
+            "question": "What is the primary purpose of multi-factor authentication (MFA)?",
+            "options": [
+                "A. To reduce the need for strong passwords",
+                "B. To add an extra layer of security during the login process",
+                "C. To encrypt all user data automatically",
+                "D. To provide faster access to applications"
+            ],
+            "answer": "B. To add an extra layer of security during the login process",
+            "explanation": "MFA requires users to provide two or more verification factors to gain access to a resource, such as a website or application, significantly enhancing security by making it harder for unauthorized users to gain access."
+        },
+        {
+            "question": "What is ransomware?",
+            "options": [
+                "A. Software that monitors user activity without their knowledge",
+                "B. A program that creates backdoors in systems",
+                "C. Malware that encrypts a victim's files and demands a payment for decryption",
+                "D. A virus that spreads through network shares"
+            ],
+            "answer": "C. Malware that encrypts a victim's files and demands a payment for decryption",
+            "explanation": "Ransomware is a type of malicious software that encrypts data on a computer or network and then demands a ransom payment, typically in cryptocurrency, in exchange for the decryption key."
+        },
+        {
+            "question": "Which security measure is designed to detect malicious activity or policy violations on a network or system?",
+            "options": [
+                "A. Intrusion Prevention System (IPS)",
+                "B. Data Loss Prevention (DLP)",
+                "C. Intrusion Detection System (IDS)",
+                "D. Virtual Private Network (VPN)"
+            ],
+            "answer": "C. Intrusion Detection System (IDS)",
+            "explanation": "An IDS monitors network or system activities for malicious activities or policy violations and produces reports to a management station. An IPS goes a step further by actively blocking or preventing detected threats."
+        },
+        {
+            "question": "What is 'social engineering' in the context of cyber security?",
+            "options": [
+                "A. The process of building secure online communities",
+                "B. Manipulating people into performing actions or divulging confidential information",
+                "C. Developing algorithms for secure social media platforms",
+                "D. A method for analyzing human behavior in security incidents"
+            ],
+            "answer": "B. Manipulating people into performing actions or divulging confidential information",
+            "explanation": "Social engineering is the psychological manipulation of people into performing actions or divulging confidential information. It relies on exploiting human psychology rather than technical vulnerabilities."
+        },
+        {
+            "question": "What is the term for a piece of code intentionally inserted into a software system that will set off a malicious function when specified conditions are met?",
+            "options": [
+                "A. Trojan Horse",
+                "B. Logic Bomb",
+                "C. Rootkit",
+                "D. Spyware"
+            ],
+            "answer": "B. Logic Bomb",
+            "explanation": "A logic bomb is a piece of code that is intentionally inserted into a software system and will activate malicious functions when certain conditions are met, such as a specific date, time, or user action."
+        },
+        {
+            "question": "What is the primary function of a Virtual Private Network (VPN)?",
+            "options": [
+                "A. To create virtual machines on a server",
+                "B. To encrypt data at rest on a device",
+                "C. To create a secure, encrypted connection over a less secure network like the internet",
+                "D. To optimize network performance and speed"
+            ],
+            "answer": "C. To create a secure, encrypted connection over a less secure network like the internet",
+            "explanation": "A VPN provides a secure, encrypted tunnel for data transmission over a public network, allowing users to browse the internet privately and securely as if they were directly connected to the private network."
+        }
+    ],
+    "Cloud Computing": [
+        {
+            "question": "What is the fundamental characteristic of cloud computing that allows users to provision resources without human intervention from the service provider?",
+            "options": [
+                "A) Broad Network Access",
+                "B) Resource Pooling",
+                "C) On-demand Self-service",
+                "D) Measured Service"
+            ],
+            "answer": "C) On-demand Self-service",
+            "explanation": "On-demand self-service allows users to provision computing capabilities, such as server time and network storage, as needed automatically without requiring human interaction with each service provider."
+        },
+        {
+            "question": "Which cloud service model provides users with ready-to-use applications over the internet, completely managed by the provider, requiring no infrastructure management from the user?",
+            "options": [
+                "A) Infrastructure as a Service (IaaS)",
+                "B) Platform as a Service (PaaS)",
+                "C) Software as a Service (SaaS)",
+                "D) Function as a Service (FaaS)"
+            ],
+            "answer": "C) Software as a Service (SaaS)",
+            "explanation": "SaaS delivers complete applications to users over the internet. The provider manages all underlying infrastructure, platforms, and software, making it 'ready-to-use' for the end-user."
+        },
+        {
+            "question": "In which cloud deployment model are computing services offered by third-party providers over the public internet and available to anyone who wants to use or purchase them?",
+            "options": [
+                "A) Private Cloud",
+                "B) Public Cloud",
+                "C) Hybrid Cloud",
+                "D) Community Cloud"
+            ],
+            "answer": "B) Public Cloud",
+            "explanation": "Public clouds are owned and operated by a third-party cloud service provider, delivering their computing resources like servers and storage over the internet to the general public."
+        },
+        {
+            "question": "What term describes the ability of a cloud system to rapidly increase or decrease computing resources in response to changing demand?",
+            "options": [
+                "A) Virtualization",
+                "B) Redundancy",
+                "C) Elasticity",
+                "D) Automation"
+            ],
+            "answer": "C) Elasticity",
+            "explanation": "Elasticity refers to the ability to scale resources up or down quickly and automatically to accommodate fluctuations in demand, often in near real-time, without human intervention."
+        },
+        {
+            "question": "Which of the following is typically managed by the user in an Infrastructure as a Service (IaaS) model?",
+            "options": [
+                "A) Applications and Data",
+                "B) Operating Systems and Middleware",
+                "C) Virtualization and Servers",
+                "D) Networking and Storage hardware"
+            ],
+            "answer": "A) Applications and Data",
+            "explanation": "In IaaS, the cloud provider manages the underlying infrastructure (networking, storage, servers, virtualization), while the user is responsible for the operating systems, middleware, applications, and data."
+        },
+        {
+            "question": "Which company is NOT generally considered one of the 'Big Three' global public cloud providers?",
+            "options": [
+                "A) Amazon Web Services (AWS)",
+                "B) Microsoft Azure",
+                "C) Google Cloud Platform (GCP)",
+                "D) Oracle Cloud Infrastructure (OCI)"
+            ],
+            "answer": "D) Oracle Cloud Infrastructure (OCI)",
+            "explanation": "AWS, Microsoft Azure, and Google Cloud Platform are widely recognized as the top three leading public cloud providers globally in terms of market share and breadth of services. While OCI is a significant player, it's typically not grouped with the 'Big Three'."
+        },
+        {
+            "question": "What is the primary characteristic of serverless computing (e.g., AWS Lambda, Azure Functions)?",
+            "options": [
+                "A) Users provision and manage physical servers",
+                "B) Users only pay for the compute resources consumed during execution",
+                "C) Applications run continuously on dedicated virtual machines",
+                "D) It is a specific type of IaaS offering"
+            ],
+            "answer": "B) Users only pay for the compute resources consumed during execution",
+            "explanation": "Serverless computing allows users to run code without provisioning or managing servers. Billing is typically based on the actual execution time and resources consumed, rather than continuous server uptime."
+        },
+        {
+            "question": "According to the Shared Responsibility Model in cloud security, who is generally responsible for 'security IN the cloud' for a typical SaaS application?",
+            "options": [
+                "A) The customer",
+                "B) The cloud provider",
+                "C) A third-party security auditor",
+                "D) Both share equal responsibility for all aspects"
+            ],
+            "answer": "B) The cloud provider",
+            "explanation": "For SaaS, the cloud provider is largely responsible for 'security IN the cloud' (i.e., the security of the application itself, its infrastructure, and data protection policies), while the customer is responsible for 'security OF the cloud' (e.g., how they use the service, their data input, user access management)."
+        },
+        {
+            "question": "What is the main advantage of a Hybrid Cloud deployment model?",
+            "options": [
+                "A) Maximum security and control over all infrastructure",
+                "B) Lowest operational costs due to full resource sharing",
+                "C) Flexibility to move workloads between private and public environments",
+                "D) Exclusive access to resources by a specific community"
+            ],
+            "answer": "C) Flexibility to move workloads between private and public environments",
+            "explanation": "A Hybrid Cloud combines public and private cloud environments, allowing data and applications to be shared between them. This offers flexibility, enabling organizations to leverage the scalability of public clouds while maintaining sensitive data in private environments."
+        },
+        {
+            "question": "Which type of cloud storage is typically used for unstructured data, such as images, videos, and backup files, and is accessed via APIs or HTTP endpoints?",
+            "options": [
+                "A) Block Storage",
+                "B) File Storage",
+                "C) Object Storage",
+                "D) Database Storage"
+            ],
+            "answer": "C) Object Storage",
+            "explanation": "Object storage (e.g., AWS S3, Azure Blob Storage) is designed for massive amounts of unstructured data. It stores data as objects within buckets and is highly scalable and durable, typically accessed over HTTP/REST APIs."
+        }
+    ],
+    "DBMS": [
+        {
+            "question": "Which of the following is NOT a characteristic of a DBMS?",
+            "options": [
+                "A. Data Redundancy",
+                "B. Data Sharing",
+                "C. Data Security",
+                "D. Data Consistency"
+            ],
+            "answer": "A. Data Redundancy",
+            "explanation": "A primary goal of a DBMS is to reduce data redundancy by centralizing data management and enforcing data integrity rules, rather than promoting it."
+        },
+        {
+            "question": "What does the 'A' in ACID properties stand for in the context of database transactions?",
+            "options": [
+                "A. Atomicity",
+                "B. Authenticity",
+                "C. Accessibility",
+                "D. Availability"
+            ],
+            "answer": "A. Atomicity",
+            "explanation": "ACID stands for Atomicity, Consistency, Isolation, and Durability. Atomicity ensures that a transaction is treated as a single, indivisible unit of operations; either all operations within it are completed, or none are."
+        },
+        {
+            "question": "Which SQL command is used to retrieve data from a database?",
+            "options": [
+                "A. UPDATE",
+                "B. INSERT",
+                "C. SELECT",
+                "D. DELETE"
+            ],
+            "answer": "C. SELECT",
+            "explanation": "The SELECT statement is used to fetch data from one or more tables in a database. UPDATE modifies existing records, INSERT adds new records, and DELETE removes records."
+        },
+        {
+            "question": "What is the primary key in a relational database table?",
+            "options": [
+                "A. A foreign key to another table",
+                "B. A column or set of columns that uniquely identifies each row",
+                "C. A column used for indexing performance",
+                "D. A column that can contain NULL values"
+            ],
+            "answer": "B. A column or set of columns that uniquely identifies each row",
+            "explanation": "A primary key is a special relational database table column (or combination of columns) designated to uniquely identify all table records. It must contain unique values for each row and cannot contain NULL values."
+        },
+        {
+            "question": "Which normal form (NF) eliminates transitive dependencies?",
+            "options": [
+                "A. First Normal Form (1NF)",
+                "B. Second Normal Form (2NF)",
+                "C. Third Normal Form (3NF)",
+                "D. Boyce-Codd Normal Form (BCNF)"
+            ],
+            "answer": "C. Third Normal Form (3NF)",
+            "explanation": "Third Normal Form (3NF) states that a table is in 3NF if it is in 2NF and all non-key attributes are non-transitively dependent on the primary key. This means eliminating transitive dependencies where a non-key attribute depends on another non-key attribute."
+        },
+        {
+            "question": "What is a 'deadlock' in a database context?",
+            "options": [
+                "A. A situation where a query takes too long to execute",
+                "B. A state where two or more transactions are waiting for each other to release a locked resource",
+                "C. A failure in the database server leading to a crash",
+                "D. An error in SQL syntax preventing query execution"
+            ],
+            "answer": "B. A state where two or more transactions are waiting for each other to release a locked resource",
+            "explanation": "A deadlock occurs when two or more transactions are each holding a lock on one resource and waiting for another transaction to release a lock on a resource that they need, leading to a standstill where none can proceed."
+        },
+        {
+            "question": "Which of the following is an example of a NoSQL database?",
+            "options": [
+                "A. MySQL",
+                "B. PostgreSQL",
+                "C. MongoDB",
+                "D. Oracle Database"
+            ],
+            "answer": "C. MongoDB",
+            "explanation": "MongoDB is a popular document-oriented NoSQL database. MySQL, PostgreSQL, and Oracle Database are all examples of relational (SQL) databases."
+        },
+        {
+            "question": "What is the purpose of an index in a database?",
+            "options": [
+                "A. To define the relationships between tables",
+                "B. To enforce data integrity constraints",
+                "C. To speed up data retrieval operations",
+                "D. To store metadata about the database schema"
+            ],
+            "answer": "C. To speed up data retrieval operations",
+            "explanation": "An index is a special lookup table that the database search engine can use to speed up data retrieval. It works much like an index in a book, allowing the database to find data quickly without scanning every row in a table."
+        },
+        {
+            "question": "Which component of a DBMS is responsible for controlling concurrent access to data?",
+            "options": [
+                "A. Query Processor",
+                "B. Storage Manager",
+                "C. Transaction Manager",
+                "D. Data Definition Language (DDL) Interpreter"
+            ],
+            "answer": "C. Transaction Manager",
+            "explanation": "The Transaction Manager is responsible for ensuring the ACID properties of transactions, including managing concurrency control to prevent conflicts when multiple users or processes access the same data simultaneously."
+        },
+        {
+            "question": "What is the difference between a database schema and a database instance?",
+            "options": [
+                "A. Schema is the physical data, instance is the logical design.",
+                "B. Schema is the logical design of the database, instance is the actual data at a particular moment.",
+                "C. Schema is for DDL, instance is for DML.",
+                "D. Schema is user-defined, instance is system-generated."
+            ],
+            "answer": "B. Schema is the logical design of the database, instance is the actual data at a particular moment.",
+            "explanation": "A database schema describes the logical structure of the database (e.g., tables, columns, relationships), while a database instance refers to the actual data stored in the database at a specific point in time."
+        }
+    ],
+    "Operating System": [
+        {
+            "question": "What is the primary function of an Operating System?",
+            "options": [
+                "A. To run application programs for users",
+                "B. To manage hardware and software resources",
+                "C. To provide internet access and email services",
+                "D. To design graphical user interfaces"
+            ],
+            "answer": "B. To manage hardware and software resources",
+            "explanation": "The OS acts as an intermediary between users/applications and computer hardware, managing resources like CPU, memory, and I/O devices to ensure efficient and secure operation."
+        },
+        {
+            "question": "Which of the following is NOT a standard state in the process life cycle?",
+            "options": [
+                "A. Ready",
+                "B. Running",
+                "C. Halted",
+                "D. Waiting"
+            ],
+            "answer": "C. Halted",
+            "explanation": "Common process states include New, Ready, Running, Waiting (or Blocked), and Terminated. 'Halted' is not a standard process state in OS terminology."
+        },
+        {
+            "question": "What is 'paging' primarily used for in an operating system?",
+            "options": [
+                "A. A technique for optimizing CPU scheduling",
+                "B. A method for organizing files on a disk",
+                "C. A memory management scheme that allows a process's physical address space to be noncontiguous",
+                "D. A security mechanism to restrict access to system calls"
+            ],
+            "answer": "C. A memory management scheme that allows a process's physical address space to be noncontiguous",
+            "explanation": "Paging is a virtual memory technique that divides memory into fixed-size blocks (pages and frames) to allow non-contiguous physical memory allocation for processes, overcoming memory fragmentation issues."
+        },
+        {
+            "question": "What is a 'semaphore' used for in operating systems?",
+            "options": [
+                "A. Managing network connections",
+                "B. Synchronizing access to shared resources by multiple processes",
+                "C. Storing temporary data for applications",
+                "D. Executing system calls"
+            ],
+            "answer": "B. Synchronizing access to shared resources by multiple processes",
+            "explanation": "Semaphores are synchronization primitives used to control access to a common resource by multiple processes in a concurrent system, preventing race conditions and ensuring data integrity."
+        },
+        {
+            "question": "Which of the following is NOT one of the four necessary conditions for a deadlock to occur?",
+            "options": [
+                "A. Mutual Exclusion",
+                "B. Hold and Wait",
+                "C. Preemption",
+                "D. No Preemption"
+            ],
+            "answer": "C. Preemption",
+            "explanation": "The four necessary conditions for a deadlock are Mutual Exclusion, Hold and Wait, No Preemption, and Circular Wait. Preemption is a mechanism used to *prevent* deadlocks, not a condition for their occurrence."
+        },
+        {
+            "question": "What type of kernel design includes most OS functionality (like device drivers, file systems, and IPC) directly in the kernel space, offering high performance but less modularity?",
+            "options": [
+                "A. Microkernel",
+                "B. Monolithic Kernel",
+                "C. Hybrid Kernel",
+                "D. Exokernel"
+            ],
+            "answer": "B. Monolithic Kernel",
+            "explanation": "A monolithic kernel has all OS services (process management, memory management, file systems, device drivers, etc.) running in the same address space as the kernel, offering high performance due to less overhead."
+        },
+        {
+            "question": "In a hierarchical file system, what does the 'root directory' represent?",
+            "options": [
+                "A. The directory where all user applications are stored",
+                "B. The top-most directory from which all other directories and files branch",
+                "C. A special directory for system logs",
+                "D. The directory containing only executable files"
+            ],
+            "answer": "B. The top-most directory from which all other directories and files branch",
+            "explanation": "The root directory is the highest level in the file system hierarchy, serving as the base for all other directories and files within the system."
+        },
+        {
+            "question": "What is a 'system call' in the context of an operating system?",
+            "options": [
+                "A. A command issued by the user through the command line interface",
+                "B. An interface for application programs to request services from the operating system",
+                "C. A message exchanged between different kernel modules",
+                "D. A hardware interrupt signal generated by a peripheral device"
+            ],
+            "answer": "B. An interface for application programs to request services from the operating system",
+            "explanation": "System calls provide a programmatic interface to the services provided by the operating system, allowing user-level processes to request kernel-level operations such as file I/O or process creation."
+        },
+        {
+            "question": "Which CPU scheduling algorithm gives priority to processes with the shortest estimated execution time?",
+            "options": [
+                "A. First-Come, First-Served (FCFS)",
+                "B. Round Robin (RR)",
+                "C. Shortest Job First (SJF)",
+                "D. Priority Scheduling"
+            ],
+            "answer": "C. Shortest Job First (SJF)",
+            "explanation": "Shortest Job First (SJF) scheduling algorithm associates with each process the length of its next CPU burst. The CPU is assigned to the process with the smallest next CPU burst, aiming to minimize average waiting time."
+        },
+        {
+            "question": "What is a crucial characteristic for a Real-Time Operating System (RTOS)?",
+            "options": [
+                "A. High throughput for general-purpose computing",
+                "B. Guaranteed response times for specific events",
+                "C. Extensive graphical user interface support",
+                "D. Support for a wide range of peripheral devices"
+            ],
+            "answer": "B. Guaranteed response times for specific events",
+            "explanation": "RTOS are designed for applications where precise timing and deterministic behavior are critical. They prioritize meeting deadlines for tasks to ensure reliable operation in time-sensitive environments."
+        }
+    ],
+    "Networking": [
+        {
+            "question": "Which OSI layer is responsible for logical addressing (e.g., IP addresses)?",
+            "options": [
+                "A) Physical Layer",
+                "B) Data Link Layer",
+                "C) Network Layer",
+                "D) Transport Layer"
+            ],
+            "answer": "C) Network Layer",
+            "explanation": "The Network layer (Layer 3) handles logical addressing using IP addresses and routing to move packets across different networks."
+        },
+        {
+            "question": "Which protocol provides connection-oriented, reliable data transmission by establishing a connection before data transfer and ensuring delivery?",
+            "options": [
+                "A) UDP",
+                "B) IP",
+                "C) TCP",
+                "D) ICMP"
+            ],
+            "answer": "C) TCP",
+            "explanation": "TCP (Transmission Control Protocol) is a connection-oriented protocol that ensures reliable delivery of data through mechanisms like acknowledgments, retransmissions, and sequencing."
+        },
+        {
+            "question": "What networking device operates at the Data Link layer (Layer 2) and forwards frames based on MAC addresses?",
+            "options": [
+                "A) Router",
+                "B) Hub",
+                "C) Switch",
+                "D) Firewall"
+            ],
+            "answer": "C) Switch",
+            "explanation": "A switch uses MAC addresses to intelligently forward data frames to the specific destination port, improving network efficiency compared to a hub."
+        },
+        {
+            "question": "Which of the following is a private IPv4 address range?",
+            "options": [
+                "A) 11.0.0.0/8",
+                "B) 172.16.0.0/12",
+                "C) 198.18.0.0/15",
+                "D) 203.0.113.0/24"
+            ],
+            "answer": "B) 172.16.0.0/12",
+            "explanation": "The private IPv4 address ranges are 10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16. These addresses are not routable on the public internet."
+        },
+        {
+            "question": "What is the primary purpose of the Domain Name System (DNS)?",
+            "options": [
+                "A) To assign IP addresses dynamically",
+                "B) To translate domain names into IP addresses",
+                "C) To secure network traffic",
+                "D) To manage network switches"
+            ],
+            "answer": "B) To translate domain names into IP addresses",
+            "explanation": "DNS translates human-readable domain names (like example.com) into machine-readable IP addresses that computers use to locate resources on a network."
+        },
+        {
+            "question": "What is a unique hardware identifier assigned to network interfaces for communication within a local network segment?",
+            "options": [
+                "A) IP Address",
+                "B) Port Number",
+                "C) MAC Address",
+                "D) Subnet Mask"
+            ],
+            "answer": "C) MAC Address",
+            "explanation": "A MAC (Media Access Control) address is a unique identifier assigned to a network interface controller (NIC) for communications at the data link layer of a network segment."
+        },
+        {
+            "question": "Which protocol is used to automatically assign IP addresses and other network configuration parameters (like subnet mask, default gateway, and DNS servers) to devices on a network?",
+            "options": [
+                "A) FTP",
+                "B) SMTP",
+                "C) DHCP",
+                "D) HTTP"
+            ],
+            "answer": "C) DHCP",
+            "explanation": "DHCP (Dynamic Host Configuration Protocol) automates the process of assigning network configuration parameters, making it easier to manage large networks."
+        },
+        {
+            "question": "In which network topology are all devices connected to a central hub or switch?",
+            "options": [
+                "A) Bus",
+                "B) Ring",
+                "C) Mesh",
+                "D) Star"
+            ],
+            "answer": "D) Star",
+            "explanation": "In a star topology, each device is connected to a central point (hub or switch). This design is common due to its ease of management and fault isolation."
+        },
+        {
+            "question": "What is the standard port number used by the HTTP protocol for unsecured web traffic?",
+            "options": [
+                "A) 21",
+                "B) 23",
+                "C) 80",
+                "D) 443"
+            ],
+            "answer": "C) 80",
+            "explanation": "Port 80 is the well-known port assigned to HTTP (Hypertext Transfer Protocol) for web server communication. Port 443 is used for HTTPS (secure HTTP)."
+        },
+        {
+            "question": "A network connecting devices across a large geographical area, such as cities, states, or even countries, is known as a:",
+            "options": [
+                "A) LAN",
+                "B) WAN",
+                "C) MAN",
+                "D) PAN"
+            ],
+            "answer": "B) WAN",
+            "explanation": "A Wide Area Network (WAN) spans a large geographical distance, typically connecting multiple Local Area Networks (LANs) or Metropolitan Area Networks (MANs)."
+        }
+    ],
+    "General Knowledge": [
+        {
+            "question": "Which is the largest ocean on Earth?",
+            "options": [
+                "Atlantic Ocean",
+                "Indian Ocean",
+                "Arctic Ocean",
+                "Pacific Ocean"
+            ],
+            "answer": "Pacific Ocean",
+            "explanation": "The Pacific Ocean is the largest and deepest of Earth's five oceanic divisions, covering about one-third of the surface area of the Earth."
+        },
+        {
+            "question": "What is the capital city of Canada?",
+            "options": [
+                "Toronto",
+                "Vancouver",
+                "Ottawa",
+                "Montreal"
+            ],
+            "answer": "Ottawa",
+            "explanation": "While Toronto and Montreal are larger cities, Ottawa is the capital city of Canada, located in the eastern part of Southern Ontario."
+        },
+        {
+            "question": "Who painted the Mona Lisa?",
+            "options": [
+                "Vincent van Gogh",
+                "Pablo Picasso",
+                "Leonardo da Vinci",
+                "Claude Monet"
+            ],
+            "answer": "Leonardo da Vinci",
+            "explanation": "The Mona Lisa is a half-length portrait painting by Italian artist Leonardo da Vinci, considered an archetypal masterpiece of the Italian Renaissance."
+        },
+        {
+            "question": "What is the chemical symbol for gold?",
+            "options": [
+                "Ag",
+                "Fe",
+                "Au",
+                "Cu"
+            ],
+            "answer": "Au",
+            "explanation": "The chemical symbol for gold is 'Au', derived from the Latin word 'aurum'."
+        },
+        {
+            "question": "Which planet is known as the 'Red Planet'?",
+            "options": [
+                "Venus",
+                "Mars",
+                "Jupiter",
+                "Saturn"
+            ],
+            "answer": "Mars",
+            "explanation": "Mars is known as the 'Red Planet' due to the iron oxide prevalent on its surface, giving it a reddish appearance."
+        },
+        {
+            "question": "How many continents are there in the world?",
+            "options": [
+                "5",
+                "6",
+                "7",
+                "8"
+            ],
+            "answer": "7",
+            "explanation": "There are generally considered to be seven continents: Asia, Africa, North America, South America, Antarctica, Europe, and Australia."
+        },
+        {
+            "question": "What is the longest river in the world?",
+            "options": [
+                "Amazon River",
+                "Nile River",
+                "Yangtze River",
+                "Mississippi River"
+            ],
+            "answer": "Nile River",
+            "explanation": "The Nile River, flowing through northeastern Africa, is generally considered to be the longest river in the world."
+        },
+        {
+            "question": "Who wrote 'Romeo and Juliet'?",
+            "options": [
+                "Charles Dickens",
+                "William Shakespeare",
+                "Jane Austen",
+                "Mark Twain"
+            ],
+            "answer": "William Shakespeare",
+            "explanation": "William Shakespeare is widely regarded as the greatest writer in the English language and is the author of the tragic play 'Romeo and Juliet'."
+        },
+        {
+            "question": "What is the primary gas that makes up the Earth's atmosphere?",
+            "options": [
+                "Oxygen",
+                "Carbon Dioxide",
+                "Nitrogen",
+                "Argon"
+            ],
+            "answer": "Nitrogen",
+            "explanation": "Nitrogen makes up approximately 78% of the Earth's atmosphere, followed by oxygen at about 21%."
+        },
+        {
+            "question": "In which year did the first man walk on the moon?",
+            "options": [
+                "1965",
+                "1969",
+                "1972",
+                "1961"
+            ],
+            "answer": "1969",
+            "explanation": "On July 20, 1969, Neil Armstrong became the first human to walk on the moon as part of NASA's Apollo 11 mission."
+        }
+    ],
+    "Aptitude": [
+        {
+            "question": "Which number comes next in the sequence: 2, 6, 12, 20, 30, ?",
+            "options": [
+                "A) 40",
+                "B) 42",
+                "C) 44",
+                "D) 46"
+            ],
+            "answer": "B) 42",
+            "explanation": "The pattern is an increase of +4, +6, +8, +10. Following this, the next increase should be +12. So, 30 + 12 = 42. Alternatively, the sequence can be represented as n*(n+1) where n starts from 1 (1*2, 2*3, 3*4, 4*5, 5*6). The next term is 6*7 = 42."
+        },
+        {
+            "question": "If A:B = 3:4 and B:C = 8:9, then A:C is equal to:",
+            "options": [
+                "A) 1:2",
+                "B) 2:3",
+                "C) 3:2",
+                "D) 1:3"
+            ],
+            "answer": "B) 2:3",
+            "explanation": "To find A:C, we can multiply the ratios: (A/B) * (B/C) = A/C. So, (3/4) * (8/9) = 24/36. Simplifying 24/36 by dividing both numbers by their greatest common divisor (12) gives 2/3. Thus, A:C = 2:3."
+        },
+        {
+            "question": "What is 25% of 25% of 200?",
+            "options": [
+                "A) 12.5",
+                "B) 10",
+                "C) 15",
+                "D) 17.5"
+            ],
+            "answer": "A) 12.5",
+            "explanation": "First, calculate 25% of 200: (25/100) * 200 = 50. Next, calculate 25% of this result: (25/100) * 50 = 12.5."
+        },
+        {
+            "question": "In a certain code, 'APPLE' is coded as 'ELPPA'. How is 'ORANGE' coded in that same code?",
+            "options": [
+                "A) EGNARO",
+                "B) EGNROA",
+                "C) EGAONR",
+                "D) EGRNOA"
+            ],
+            "answer": "A) EGNARO",
+            "explanation": "The word 'APPLE' is coded by reversing its letters to get 'ELPPA'. Applying the same logic to 'ORANGE', reversing the letters gives 'EGNARO'."
+        },
+        {
+            "question": "A can do a piece of work in 10 days and B can do it in 15 days. In how many days can A and B together complete the work?",
+            "options": [
+                "A) 5 days",
+                "B) 6 days",
+                "C) 7.5 days",
+                "D) 8 days"
+            ],
+            "answer": "B) 6 days",
+            "explanation": "A's one day work = 1/10. B's one day work = 1/15. If they work together, their combined one day work is (1/10) + (1/15) = (3/30) + (2/30) = 5/30 = 1/6. Therefore, together they can complete the work in 6 days."
+        },
+        {
+            "question": "Architect : Building :: Sculptor : ?",
+            "options": [
+                "A) Statue",
+                "B) Chisel",
+                "C) Marble",
+                "D) Museum"
+            ],
+            "answer": "A) Statue",
+            "explanation": "An architect designs and creates a building. Similarly, a sculptor designs and creates a statue. The relationship is that of a creator to their principal creation."
+        },
+        {
+            "question": "A man walks 5 km East, then turns South and walks 4 km. Then he turns West and walks 5 km. In which direction is he from his starting point?",
+            "options": [
+                "A) North",
+                "B) South",
+                "C) East",
+                "D) West"
+            ],
+            "answer": "B) South",
+            "explanation": "The man walks 5 km East and then 5 km West. These two movements cancel each other out horizontally, bringing him back to the same East-West line as his starting point. The only net displacement is 4 km South. Therefore, he is South from his starting point."
+        },
+        {
+            "question": "The average age of 30 students and their teacher is 15 years. If the teacher's age is 45 years, what is the average age of the 30 students?",
+            "options": [
+                "A) 14 years",
+                "B) 13 years",
+                "C) 12 years",
+                "D) 12.5 years"
+            ],
+            "answer": "A) 14 years",
+            "explanation": "Total number of people = 30 students + 1 teacher = 31. The total age of these 31 people = 31 * 15 = 465 years. If the teacher's age is 45 years, then the total age of the 30 students = 465 - 45 = 420 years. The average age of the 30 students = 420 / 30 = 14 years."
+        },
+        {
+            "question": "Find the odd one out: Kettle, Toaster, Mixer, Refrigerator",
+            "options": [
+                "A) Kettle",
+                "B) Toaster",
+                "C) Mixer",
+                "D) Refrigerator"
+            ],
+            "answer": "D) Refrigerator",
+            "explanation": "Kettle, Toaster, and Mixer are all kitchen appliances that are primarily used for preparing or cooking food through heat or mechanical action. A Refrigerator, on the other hand, is primarily used for preserving food by cooling, rather than preparing or cooking it."
+        },
+        {
+            "question": "A sum of money at simple interest doubles itself in 8 years. In how many years will it become four times itself?",
+            "options": [
+                "A) 16 years",
+                "B) 20 years",
+                "C) 24 years",
+                "D) 32 years"
+            ],
+            "answer": "C) 24 years",
+            "explanation": "For simple interest, the interest earned grows linearly. If the money doubles (meaning it earns 100% of the principal as interest) in 8 years, then to become four times itself, it needs to earn 300% of the principal as interest (Amount = Principal + Interest; 4P = P + 3P, so interest is 3P or 300%). Since 100% interest takes 8 years, 300% interest will take 3 times as long: 3 * 8 years = 24 years."
+        }
+    ],
+    "Logical Reasoning": [
+        {
+            "question": "Consider the following statements:\n1. All mammals can fly.\n2. Bats are mammals.\n3. Therefore, bats can fly.\nWhich of the following best describes the argument?",
+            "options": [
+                "It is valid and sound.",
+                "It is valid but unsound.",
+                "It is invalid but sound.",
+                "It is invalid and unsound."
+            ],
+            "answer": "It is valid but unsound.",
+            "explanation": "The argument structure (All A are B, C is A, therefore C is B) is deductively valid; if the premises were true, the conclusion would necessarily follow. However, the first premise ('All mammals can fly') is factually false. A sound argument requires both validity and true premises."
+        },
+        {
+            "question": "What number comes next in the sequence: 2, 5, 10, 17, 26, ?",
+            "options": [
+                "35",
+                "36",
+                "37",
+                "38"
+            ],
+            "answer": "37",
+            "explanation": "The differences between consecutive numbers are +3, +5, +7, +9. Following this pattern, the next difference should be +11. So, 26 + 11 = 37. (Alternatively, the sequence can be represented as n^2 + 1 for n=1, 2, 3, ...)"
+        },
+        {
+            "question": "Which word is the odd one out?",
+            "options": [
+                "Enormous",
+                "Gigantic",
+                "Colossal",
+                "Miniature"
+            ],
+            "answer": "Miniature",
+            "explanation": "Enormous, Gigantic, and Colossal are all synonyms referring to something very large. Miniature means very small, making it the antonym and the odd one out."
+        },
+        {
+            "question": "Tree is to Forest as Soldier is to _____.",
+            "options": [
+                "Army",
+                "Battle",
+                "Weapon",
+                "Uniform"
+            ],
+            "answer": "Army",
+            "explanation": "A tree is a single component that constitutes a forest (a collection of trees). Similarly, a soldier is a single component that constitutes an army (a collection of soldiers)."
+        },
+        {
+            "question": "A local gym owner claims that regular exercise significantly reduces stress levels. Which of the following, if true, would *strengthen* the gym owner's claim?",
+            "options": [
+                "A study found that people who exercise regularly tend to have healthier diets.",
+                "Many gym members reported feeling less stressed after starting a regular workout routine.",
+                "Stress levels in the general population have increased over the last decade.",
+                "Access to gyms and fitness equipment has become more widespread."
+            ],
+            "answer": "Many gym members reported feeling less stressed after starting a regular workout routine.",
+            "explanation": "This option provides direct observational evidence that links the initiation of regular exercise to a reduction in stress, thereby directly supporting the gym owner's claim. The other options are either irrelevant or provide only indirect support."
+        },
+        {
+            "question": "\"We should invest more in public transportation to reduce traffic congestion. If more people use buses and trains, fewer cars will be on the road.\"\nWhat unstated assumption does the speaker make?",
+            "options": [
+                "Public transportation is more environmentally friendly than private cars.",
+                "The current public transportation system is inadequate.",
+                "People will choose to use public transportation if it is available.",
+                "Reducing traffic congestion is the only goal of public transportation."
+            ],
+            "answer": "People will choose to use public transportation if it is available.",
+            "explanation": "The argument's conclusion (fewer cars on the road) depends on the premise that people will actually switch from cars to public transportation if more is invested in it. This willingness to switch is an unstated assumption."
+        },
+        {
+            "question": "For the past three months, the price of gasoline has steadily increased. During the same period, the number of people cycling to work has also risen significantly. What is the most likely relationship between these two trends?",
+            "options": [
+                "Increased cycling causes higher gasoline prices.",
+                "Higher gasoline prices encourage more people to cycle.",
+                "Both trends are caused by a general increase in environmental awareness.",
+                "There is no direct relationship; the correlation is coincidental."
+            ],
+            "answer": "Higher gasoline prices encourage more people to cycle.",
+            "explanation": "It is more plausible that rising gasoline prices (making driving more expensive) would incentivize people to seek cheaper alternative transportation methods, such as cycling, rather than the reverse or an unrelated common cause being the primary driver for these specific parallel trends."
+        },
+        {
+            "question": "If it is raining, then the streets are wet. The streets are not wet. What can you logically conclude?",
+            "options": [
+                "It is raining.",
+                "It is not raining.",
+                "The streets are dry.",
+                "You cannot conclude anything definitively about the rain."
+            ],
+            "answer": "It is not raining.",
+            "explanation": "This is an example of Modus Tollens (denying the consequent). If P implies Q, and Q is false, then P must also be false. (If Rain -> Wet Streets; Not Wet Streets -> Not Rain)."
+        },
+        {
+            "question": "John is taller than Peter. Peter is shorter than Mark. Mark is shorter than John. Which of the following statements must be true?",
+            "options": [
+                "Peter is the shortest.",
+                "Mark is taller than Peter.",
+                "John is the tallest.",
+                "John is shorter than Mark."
+            ],
+            "answer": "Mark is taller than Peter.",
+            "explanation": "From the statements, we can deduce the order: John > Mark (from 'Mark is shorter than John') and Mark > Peter (from 'Peter is shorter than Mark'). Combining these gives John > Mark > Peter. Therefore, Mark is taller than Peter is a direct consequence."
+        },
+        {
+            "question": "\"Despite recent economic downturns, our company's sales figures have remained stable. This proves that our products are recession-proof.\"\nWhich of the following statements identifies a flaw in the reasoning?",
+            "options": [
+                "Stable sales figures do not necessarily mean the products are recession-proof; they could simply be holding steady while competitors decline more sharply.",
+                "The company might be spending more on advertising to maintain stable sales, which could indicate vulnerability.",
+                "The term 'recession-proof' is vague and difficult to quantify.",
+                "The company might have a diverse product portfolio, with some products performing better than others."
+            ],
+            "answer": "Stable sales figures do not necessarily mean the products are recession-proof; they could simply be holding steady while competitors decline more sharply.",
+            "explanation": "The flaw lies in drawing too strong a conclusion from the evidence. 'Stable' does not automatically equate to 'recession-proof.' The sales might be stable due to other factors (e.g., market share gain from failing competitors, or heavy discounting), or the definition of 'recession-proof' implies complete immunity, which 'stable' sales during a downturn doesn't definitively prove. The stated answer directly challenges the conclusion's strength based on the evidence."
+        }
+    ],
+    "Current Affairs": [
+        {
+            "question": "Which country recently became the 21st permanent member of the G20 group during the 2023 New Delhi summit?",
+            "options": [
+                "African Union",
+                "ASEAN",
+                "European Union",
+                "Commonwealth of Nations"
+            ],
+            "answer": "African Union",
+            "explanation": "The African Union was granted permanent membership in the G20 during the summit held in New Delhi, India, in September 2023, expanding the group's representation."
+        },
+        {
+            "question": "Which nation successfully landed its Chandrayaan-3 spacecraft on the Moon's South Pole region in August 2023, becoming the fourth country to achieve a soft lunar landing?",
+            "options": [
+                "China",
+                "United States",
+                "India",
+                "Russia"
+            ],
+            "answer": "India",
+            "explanation": "India made history in August 2023 by successfully landing its Chandrayaan-3 mission on the lunar South Pole, a region of scientific interest due to potential water ice."
+        },
+        {
+            "question": "Who was elected as the new President of Indonesia in February 2024?",
+            "options": [
+                "Anies Baswedan",
+                "Ganjar Pranowo",
+                "Prabowo Subianto",
+                "Joko Widodo"
+            ],
+            "answer": "Prabowo Subianto",
+            "explanation": "Prabowo Subianto, the former Defense Minister, won the Indonesian presidential election in February 2024, succeeding Joko Widodo."
+        },
+        {
+            "question": "What is the name of the new global treaty adopted in June 2023, aimed at protecting marine biodiversity in international waters (the high seas)?",
+            "options": [
+                "Paris Agreement on Oceans",
+                "Kyoto Protocol for Marine Life",
+                "High Seas Treaty",
+                "UN Ocean Conservation Accord"
+            ],
+            "answer": "High Seas Treaty",
+            "explanation": "The United Nations adopted the 'High Seas Treaty' in June 2023, a landmark agreement to conserve and sustainably use marine biological diversity beyond national jurisdiction."
+        },
+        {
+            "question": "Which city hosted the COP28 climate summit in November-December 2023?",
+            "options": [
+                "Sharm El Sheikh, Egypt",
+                "Glasgow, UK",
+                "Dubai, UAE",
+                "Bonn, Germany"
+            ],
+            "answer": "Dubai, UAE",
+            "explanation": "The 28th Conference of the Parties (COP28) to the UNFCCC was held in Dubai, United Arab Emirates, from November 30 to December 13, 2023."
+        },
+        {
+            "question": "The ongoing conflict between which two countries has led to significant global energy market disruptions since early 2022?",
+            "options": [
+                "Israel and Palestine",
+                "Russia and Ukraine",
+                "Armenia and Azerbaijan",
+                "Sudan and South Sudan"
+            ],
+            "answer": "Russia and Ukraine",
+            "explanation": "The full-scale invasion of Ukraine by Russia, which began in February 2022, has had profound impacts on global energy markets, leading to price volatility and supply concerns."
+        },
+        {
+            "question": "Who was appointed as the new CEO of OpenAI in November 2023, following a brief leadership crisis?",
+            "options": [
+                "Mira Murati",
+                "Emmett Shear",
+                "Sam Altman",
+                "Greg Brockman"
+            ],
+            "answer": "Sam Altman",
+            "explanation": "Sam Altman was reinstated as CEO of OpenAI in November 2023, following his removal and subsequent negotiations to return."
+        },
+        {
+            "question": "Which country officially joined the BRICS bloc as a full member in January 2024, alongside four other nations?",
+            "options": [
+                "Mexico",
+                "Nigeria",
+                "Argentina",
+                "Egypt"
+            ],
+            "answer": "Egypt",
+            "explanation": "Egypt became a full member of BRICS in January 2024, along with Ethiopia, Iran, Saudi Arabia, and the United Arab Emirates. Argentina had also been invited but declined to join."
+        },
+        {
+            "question": "In early 2024, the United Kingdom faced a significant political event with the resignation of which senior minister, sparking a debate on 'Partygate' and other issues?",
+            "options": [
+                "Rishi Sunak",
+                "Liz Truss",
+                "Boris Johnson",
+                "Suella Braverman"
+            ],
+            "answer": "Suella Braverman",
+            "explanation": "Suella Braverman was dismissed as Home Secretary by Prime Minister Rishi Sunak in November 2023, amidst disagreements on policing and immigration policy, rather than early 2024. This was a notable political event."
+        },
+        {
+            "question": "Which major international sporting event is scheduled to be held in Paris, France, in the summer of 2024?",
+            "options": [
+                "FIFA World Cup",
+                "Commonwealth Games",
+                "Olympic Games",
+                "Rugby World Cup"
+            ],
+            "answer": "Olympic Games",
+            "explanation": "Paris, France, is set to host the XXXIII Olympic Summer Games from July 26 to August 11, 2024."
+        }
+    ],
+    "Project-Based": [
+        {
+            "question": "Which of the following is typically the first phase in a traditional project life cycle?",
+            "options": [
+                "Planning",
+                "Execution",
+                "Initiation",
+                "Closure"
+            ],
+            "answer": "Initiation",
+            "explanation": "The initiation phase is where a project is formally authorized and defined, often resulting in a project charter and the assignment of a project manager."
+        },
+        {
+            "question": "What document formally authorizes a project or a phase and gives the project manager the authority to apply organizational resources to project activities?",
+            "options": [
+                "Scope Statement",
+                "Project Management Plan",
+                "Project Charter",
+                "Work Breakdown Structure (WBS)"
+            ],
+            "answer": "Project Charter",
+            "explanation": "The Project Charter is the key document that formally authorizes a project and grants the Project Manager the authority to utilize organizational resources."
+        },
+        {
+            "question": "The process of identifying, analyzing, and responding to project risks throughout the life of a project and in the best interest of its objectives is known as what?",
+            "options": [
+                "Quality Control",
+                "Stakeholder Engagement",
+                "Risk Management",
+                "Resource Allocation"
+            ],
+            "answer": "Risk Management",
+            "explanation": "Risk Management is the specific knowledge area dedicated to proactively addressing uncertainties that could impact project objectives, both positively and negatively."
+        },
+        {
+            "question": "What is 'scope creep' in a project context?",
+            "options": [
+                "The project team's slow progress",
+                "Gradual increase in project budget",
+                "Uncontrolled expansion of product or project scope without adjustments to time, cost, and resources",
+                "A delay in the project schedule"
+            ],
+            "answer": "Uncontrolled expansion of product or project scope without adjustments to time, cost, and resources",
+            "explanation": "Scope creep refers to unauthorized or undocumented changes to the project's scope, often leading to cost overruns, schedule delays, and decreased quality if not managed."
+        },
+        {
+            "question": "In an Agile Scrum framework, what is the role responsible for maximizing the value of the product resulting from the work of the Development Team?",
+            "options": [
+                "Scrum Master",
+                "Project Manager",
+                "Product Owner",
+                "Stakeholder"
+            ],
+            "answer": "Product Owner",
+            "explanation": "The Product Owner is responsible for defining and prioritizing the Product Backlog items to ensure the Development Team delivers maximum business value."
+        },
+        {
+            "question": "Which of the following best describes a project deliverable?",
+            "options": [
+                "Any unique and verifiable product, result, or capability to perform a service that is produced to complete a process, phase, or project",
+                "The total cost incurred to complete a project",
+                "A detailed plan outlining all project activities",
+                "The final presentation to stakeholders"
+            ],
+            "answer": "Any unique and verifiable product, result, or capability to perform a service that is produced to complete a process, phase, or project",
+            "explanation": "Deliverables are the tangible or intangible outputs of a project or phase, which are required to be produced as part of the project scope."
+        },
+        {
+            "question": "The 'Triple Constraint' in project management typically refers to which three factors?",
+            "options": [
+                "People, Process, Product",
+                "Scope, Schedule, Cost",
+                "Quality, Risk, Resources",
+                "Management, Team, Client"
+            ],
+            "answer": "Scope, Schedule, Cost",
+            "explanation": "The triple constraint, also known as the project management triangle, illustrates the interdependent relationship between a project's scope, time (schedule), and cost. Changes in one often impact the others."
+        },
+        {
+            "question": "What is the primary purpose of the Project Closure phase?",
+            "options": [
+                "To approve the project budget",
+                "To formally complete the project and release resources",
+                "To conduct daily stand-up meetings",
+                "To identify new project opportunities"
+            ],
+            "answer": "To formally complete the project and release resources",
+            "explanation": "The Project Closure phase involves formalizing the completion of all project activities, obtaining final acceptance of deliverables, and releasing project resources and team members."
+        },
+        {
+            "question": "What is the main purpose of creating a Work Breakdown Structure (WBS)?",
+            "options": [
+                "To define the project team's roles and responsibilities",
+                "To estimate the total project cost",
+                "To decompose the project scope into smaller, more manageable components",
+                "To track daily progress of individual tasks"
+            ],
+            "answer": "To decompose the project scope into smaller, more manageable components",
+            "explanation": "The WBS is a hierarchical decomposition of the total scope of work required to complete the project, breaking it down into manageable work packages."
+        },
+        {
+            "question": "Who are 'stakeholders' in a project?",
+            "options": [
+                "Only the project manager and core team members",
+                "Individuals or organizations whose interests may be affected by the outcome of a project",
+                "The top management of the client organization",
+                "Only those who directly fund the project"
+            ],
+            "answer": "Individuals or organizations whose interests may be affected by the outcome of a project",
+            "explanation": "Project stakeholders include anyone who can affect or be affected by the project, encompassing a broad range of individuals and groups, not just those directly involved or funding it."
+        }
+    ],
+    "Mixed": [
+        {
+            "question": "Which planet in our solar system is known as the 'Red Planet'?",
+            "options": [
+                "Jupiter",
+                "Mars",
+                "Venus",
+                "Saturn"
+            ],
+            "answer": "Mars",
+            "explanation": "Mars is often called the 'Red Planet' due to the iron oxide prevalent on its surface, giving it a reddish appearance."
+        },
+        {
+            "question": "Who painted the Mona Lisa?",
+            "options": [
+                "Vincent van Gogh",
+                "Pablo Picasso",
+                "Leonardo da Vinci",
+                "Claude Monet"
+            ],
+            "answer": "Leonardo da Vinci",
+            "explanation": "Leonardo da Vinci, the Italian polymath, is credited with painting the Mona Lisa, one of the world's most famous artworks."
+        },
+        {
+            "question": "What is the capital city of Australia?",
+            "options": [
+                "Sydney",
+                "Melbourne",
+                "Canberra",
+                "Brisbane"
+            ],
+            "answer": "Canberra",
+            "explanation": "While Sydney and Melbourne are larger and more well-known, Canberra is the official capital city of Australia."
+        },
+        {
+            "question": "Which of these is not a primary color of light?",
+            "options": [
+                "Red",
+                "Green",
+                "Yellow",
+                "Blue"
+            ],
+            "answer": "Yellow",
+            "explanation": "The primary colors of light are Red, Green, and Blue (RGB), which can be combined to create all other colors of light. Yellow is a secondary color of light."
+        },
+        {
+            "question": "In which year did the Titanic sink?",
+            "options": [
+                "1905",
+                "1912",
+                "1918",
+                "1923"
+            ],
+            "answer": "1912",
+            "explanation": "The RMS Titanic sank on April 15, 1912, after striking an iceberg during its maiden voyage across the Atlantic Ocean."
+        },
+        {
+            "question": "What is the largest ocean on Earth?",
+            "options": [
+                "Atlantic Ocean",
+                "Indian Ocean",
+                "Southern Ocean",
+                "Pacific Ocean"
+            ],
+            "answer": "Pacific Ocean",
+            "explanation": "The Pacific Ocean is the largest and deepest of Earth's five oceanic divisions, covering about a third of the surface area of the Earth."
+        },
+        {
+            "question": "Which gas do plants absorb from the atmosphere for photosynthesis?",
+            "options": [
+                "Oxygen",
+                "Nitrogen",
+                "Carbon Dioxide",
+                "Hydrogen"
+            ],
+            "answer": "Carbon Dioxide",
+            "explanation": "Plants absorb carbon dioxide from the atmosphere and use it along with sunlight and water to create their own food through photosynthesis."
+        },
+        {
+            "question": "Who wrote the play 'Romeo and Juliet'?",
+            "options": [
+                "Charles Dickens",
+                "William Shakespeare",
+                "Jane Austen",
+                "Mark Twain"
+            ],
+            "answer": "William Shakespeare",
+            "explanation": "William Shakespeare, the renowned English playwright and poet, is the author of the tragic love story 'Romeo and Juliet'."
+        },
+        {
+            "question": "What is the chemical symbol for gold?",
+            "options": [
+                "Gd",
+                "Ag",
+                "Au",
+                "Fe"
+            ],
+            "answer": "Au",
+            "explanation": "The chemical symbol for gold is Au, derived from its Latin name 'aurum'."
+        },
+        {
+            "question": "Which of these animals is a mammal?",
+            "options": [
+                "Snake",
+                "Frog",
+                "Dolphin",
+                "Chicken"
+            ],
+            "answer": "Dolphin",
+            "explanation": "Dolphins are marine mammals, breathing air, giving birth to live young, and nursing them with milk, unlike snakes (reptiles), frogs (amphibians), or chickens (birds)."
+        }
+    ]
+}

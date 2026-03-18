@@ -1,0 +1,21 @@
+Topic: Basics of Artificial Intelligence (Study Guide)
+-------------------------------------------------------
+
+Artificial Intelligence (AI) is the simulation of human intelligence processes by machines, especially computer systems. These processes include learning (the acquisition of information and rules for using the information), reasoning (using rules to reach approximate or definite conclusions), and self-correction.
+
+Subfields of AI:
+1. Machine Learning (ML): A subset of AI where algorithms learn from data without explicit programming. It relies on features, datasets, and iterative optimization.
+2. Deep Learning (DL): A subset of ML using neural networks with many layers (hence 'deep') to model complex patterns (like images, audio, and large language nodes).
+3. Natural Language Processing (NLP): Technology that helps computers understand, manipulate, and generate human language flows correctly.
+
+Basic Applications of Modern AI:
+- Autonomous vehicles: Training networks to identify roads and predict collisions.
+- Medicine and Healthcare: Advanced diagnostics scanning radiographs faster than basic visual analysis.
+- Recommendation systems: Standard loops sorting preference indices on sites like Netflix or Amazon.
+
+Standard workflow of AI operations usually involves:
+- Data Ingestion
+- Feature engineering
+- Training algorithms
+- Validating output scopes
+- Continuous loops of evaluation.
