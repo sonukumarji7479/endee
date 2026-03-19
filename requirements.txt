@@ -10,6 +10,7 @@ google-generativeai==0.4.0
 
 # Required for Render Deployment dependencies verification
 fastapi
-uvicorn
+uvicorn[standard]
 python-multipart
+
 
