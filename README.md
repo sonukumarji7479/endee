@@ -1,109 +1,127 @@
-# AI Study Assistant
+# 🚀 AI Study Assistant
 
-A Complete AI-powered Study Assistant Web Application using **RAG (Retrieval Augmented Generation)**, built strictly with **Google Gemini / Ollama** and the **Endee Vector Database** for fast semantic search and context retrieval.
-
----
-
-## 🚀 Overview
-
-The **AI Study Assistant** allows users to upload long-form PDF materials, manage document context grids, and interact via smart **Voice AI** or Chat. It also contains a full **Quiz Engine** with fallback stability ensuring unlimited quiz generation support offline safely.
+A production-ready, AI-powered learning platform leveraging **Retrieval-Augmented Generation (RAG)**, semantic search, and interactive voice integration. Upload materials, interact with local or cloud models, and generating instant smart quizzes flawlessly.
 
 ---
 
-## 🛠 Features
+## 🌟 Features
 
-- **📂 Document Management System**: 
-  - Drag & Drop PDF upload and automated indexing.
-  - Multi-select Document grids allowing **Filtered RAG Queries** (target specific files exclusively).
-  - Delete endpoints wiping materials from queries seamlessly.
-- **🎤 Complete Voice AI System**:
-  - **Speech-To-Text (STT)**: Dictate inputs through mic panel bindings.
-  - **Text-To-Speech (TTS)**: Let the Assistant read response bubbles aloud natively.
-  - **Multi-Language Support**: Synced topbar dropdown supports **English, Hindi, Bengali, and Tamil** audio streams natively.
-- **🧠 Advanced Quiz Engine**:
-  - Generate MCQs based on specific Categories & Difficulties.
-  - **100% Uptime Static Fallback**: Over 150+ cached questions per static static category pool ensures zero LLM timeout failures natively on requests.
-- **🌐 In-App Translator**: Translate prompt answers into targeted language nodes flawlessly inside prompt views.
+- **🧠 Dashboard**: Comprehensive overview displaying overall study statistics and quick action cards in a sleek design.
+- **💬 Chat Assistant**: Real-time conversational AI answering queries using context extracted from uploaded documents (Ollama or Google Gemini backed).
+- **📂 Upload PDF**: Drag & Drop indexing of long-form academic papers, processing content efficiently.
+- **📄 Documents Management**: View listed uploads, filter items, and delete stale context nodes flawlessly.
+- **🧠 Quiz System**: Dynamic multiple-choice question generator adapting to specific domains with failover offline question-pools.
+- **🌐 Translator**: Translate AI answer frames into languages target nodes securely on the fly.
+- **🎤 Voice AI**: Speak-to-prompt inputs binding speech-recognition and text-to-speech triggers natively.
 
 ---
 
-## ⚙ Tech Stack
+## 🧠 How It Works (RAG Pipeline)
 
-- **Backend**: Python 3.10+ (FastAPI)
-- **Frontend**: Vanilla HTML / CSS / JavaScript (Glassmorphic Styles)
-- **Vector DB**: Endee Vector Database 
-- **LLM / Embedding Models**: Google Gemini (`gemini-2.5-flash`), Ollama (Local LLM)
+The AI Study Assistant follows an advanced **Retrieval-Augmented Generation** workflow to ensure accuracy and prevent hallucinations:
+
+1. **PDF Upload & Extraction**: PDFs are processed to extract raw textual sequences securely.
+2. **Chunking & Embedding Generation**: Extracted nodes are chunked and transformed into vector embeddings.
+3. **Storage in Endee Vector DB**: Embeddings are indexed into the **Endee Vector Database** for sub-second retrieval times.
+4. **Semantic Context Retrieval**: When you query the assistant, the system computes similarity matrices against the Vector DB.
+5. **LLM Inference Responses**: Retrieved context streams into the LLM (Ollama / Gemini) to produce hyper-accurate, sourced answers absolute safely.
 
 ---
 
-## 🔨 Installation & Setup
+## ⚙️ Tech Stack
 
-### Prerequisite
+- **Backend**: [FastAPI](https://fastapi.tiangolo.com/) (Python 3.10+)
+- **Frontend**: Vanilla HTML5, CSS3 Glassmorphism, Modern JavaScript
+- **Vector Database**: Endee Vector DB
+- **LLM Integrations**: [Google Gemini](https://ai.google.dev/) (Default) & [Ollama](https://ollama.com/) (Local Fallback)
 
-1. Ensure **Python 3.10+** is installed on the device.
-2. Setup Cloud API Keys OR install **Ollama**.
+---
 
-### 1. Configure Workspace Keys
+## 📂 Project Structure
 
-Create & update `.env` file at the root:
+```text
+├── backend/               # FastAPI route handlers, logic, and RAG pipelines
+├── frontend/              # Sleek Glassmorphic HTML page assets and JS views
+├── requirements.txt       # Core Python library dependencies list
+└── .env                   # Configuration mapping APIs and model triggers
+```
+
+---
+
+## 🔌 API Endpoints
+
+| Endpoint | Method | Description |
+| :--- | :--- | :--- |
+| `/api/v1/assistant/ask` | `POST` | Query the Assistant with RAG context routing. |
+| `/api/v1/materials/upload` | `POST` | Index document textual buffers into Endee. |
+| `/api/v1/materials/delete` | `POST` | Wipe file bindings and vector bounds flawlessly. |
+| `/api/v1/quiz/generate` | `POST` | Trigger smart MCQs with fall-proof failovers. |
+| `/api/v1/translate` | `POST` | Core Routing parsing translated buffers. |
+
+---
+
+## 🛠️ Installation & Setup
+
+### 1. Clone the Workspace
+```bash
+git clone https://github.com/sonukumarji7479/endee.git
+cd endee
+```
+
+### 2. Set Up Environment variables
+Create a `.env` file in the workspace root with target API keys:
 ```env
-# Provider Settings (gemini, or ollama)
-LLM_PROVIDER=gemini
-
-# FastAPI / Backend Config
-ENDEE_API_URL=http://localhost:8080
-ENDEE_AUTH_TOKEN=
-
-# Cloud API Keys
-GEMINI_API_KEY=your_gemini_key_here
-
-# Local LLM Config (if using 'ollama')
+LLM_PROVIDER=gemini  # Or 'ollama'
+GEMINI_API_KEY=your_gemini_api_key_here
 OLLAMA_HOST=http://localhost:11434
 OLLAMA_MODEL=gemma:latest
 ```
 
-### 🟢 Using Local Offline LLM (Ollama)
-1. Download from **[ollama.com](https://ollama.com)** and run the application.
-2. Run: `ollama pull gemma:latest`
-3. Update `.env` with `LLM_PROVIDER=ollama` + `OLLAMA_MODEL=gemma:latest`. 
-
 ---
 
-### 2. Run Backend Setup
+## ▶️ Run Locally
 
-```bash
-# Enter root of workspace
+Provide running orders:
+
+```powershell
+# Create virtual environment
 python -m venv venv
-# Activate virtual environment
-.\venv\Scripts\activate   # On Windows
-source venv/bin/activate  # On Linux/Mac
+
+# Activate on Windows
+venv\Scripts\activate
 
 # Install dependencies
 pip install -r requirements.txt
 
-# [Optional] Seed Quiz questions database for static offline fallback
-python backend/seed_quiz_pool.py
-
-# Start Server
+# Start Backend Server
 python backend/main.py
 ```
 
-### 3. Open Frontend Layouts
-
-Simply load **`http://localhost:8000/frontend/index.html`** or double click `frontend/index.html` file in your browser directly to load the Dashboard interactively!
+Load **`http://localhost:8000/frontend/index.html`** in your browser to view Dashboard triggers interactively.
 
 ---
 
-## 🔌 Interface & API References
+## 📸 Screenshots
 
-| Path | Method | Description |
-|---|---|---|
-| `/api/v1/materials/upload` | `POST` | Upload PDF files to index into node buffers |
-| `/api/v1/assistant/ask` | `POST` | Ask questions with context loop queries (supports optional `sources: []` filter) |
-| `/api/v1/materials/delete` | `POST` | Remove files and vector index bounds securely |
-| `/api/v1/quiz/generate` | `POST` | Trigger MCQs pulling from Static DB fallbacks flawlessly |
-| `/api/v1/translate` | `POST` | Core routing translating streams across selector ranges |
+*Place screenshot asset nodes here.*
 
 ---
 
-*Note: Verified running successfully in standard backgrounds triggers.*
+## 🚀 Live Demo
+
+[Explore Live Instance (Placeholder)]()
+
+---
+
+## 🌐 Future Scope
+
+- 📱 **Mobile App Interface**: React Native layouts.
+- ☁️ **Cloud Deployment**: Containerized hosting pipelines.
+- 🔑 **User Authentication**: Secure workspace session filters.
+- 🤝 **Real-Time Collaboration**: Shareable notebooks layouts.
+
+---
+
+## 👨‍💻 Author
+
+**Sonu Kumar** ([@sonukumarji7479](https://github.com/sonukumarji7479))
