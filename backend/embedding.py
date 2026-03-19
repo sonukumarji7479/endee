@@ -13,7 +13,7 @@ class EmbeddingGenerator:
              genai.configure(api_key=self.api_key)
 
     def get_embeddings(self, texts: list) -> list:
-        if not self.api_key or self.api_key in ["your_openai_api_key_here", "your_gemini_api_key_here"]:
+        if self.provider != "ollama" and (not self.api_key or self.api_key in ["your_openai_api_key_here", "your_gemini_api_key_here"]):
               print(f"[WARNING] API Key for {self.provider} not set. Using Random MOCK Embeddings.")
               import random
               return [[random.uniform(-1, 1) for _ in range(1536)] for _ in texts]

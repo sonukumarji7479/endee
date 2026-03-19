@@ -3,8 +3,6 @@ import sys
 import json
 from dotenv import load_dotenv
 
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-
 load_dotenv()
 
 class QuizGenerator:
@@ -12,126 +10,97 @@ class QuizGenerator:
         self.provider = os.getenv("LLM_PROVIDER", "openai").lower()
         self.api_key = os.getenv("OPENAI_API_KEY") if self.provider == "openai" else os.getenv("GEMINI_API_KEY")
 
-    def generate_quiz(self, context: str, difficulty: str = "Medium", count: int = 5, category: str = "") -> list:
-        system_prompt = (
-            "You are an expert quiz master. Generate a Multiple Choice Question (MCQ) quiz based strictly on the provided Context or Category.\n"
-            "Return ONLY valid JSON array containing objects corresponding to schema. Do not output markdown code blocks (no ````json).\n"
-            "The JSON must be a list of question objects:\n"
-            "[\n"
-            "  {\n"
-            "    \"question\": \"Question text?\",\n"
-            "    \"options\": [\"Option A text\", \"Option B text\", \"Option C text\", \"Option D text\"],\n"
-            "    \"answer\": \"Exact text matching one of the options above\",\n"
-            "    \"explanation\": \"Brief explanation of the answer\"\n"
-            "  }\n"
-            "]"
-        )
-        
-        if category and not context:
-             user_prompt = f"Category: {category}\nDifficulty: {difficulty}\nGenerate {count} highly accurate questions based on this topic. Include conceptual, technical, and code-based examples if applicable."
-        else:
-             user_prompt = f"Context:\n{context}\n\nDifficulty: {difficulty}\nGenerate {count} questions."
+        # Static Fallback Questions Pool for 100% uptime guarantee on common topics
+        self.static_pool = {
+            "Java": [
+                {"question": "What is the size of int in Java?", "options": ["2 bytes", "4 bytes", "8 bytes", "Depends on architecture"], "answer": "4 bytes"},
+                {"question": "Which keyword is used to inherit a class in Java?", "options": ["implements", "inherits", "extends", "super"], "answer": "extends"},
+                {"question": "What is the default value of a boolean variable in Java?", "options": ["true", "false", "null", "undefined"], "answer": "false"}
+            ],
+            "Python": [
+                {"question": "Which of the following is an immutable data type in Python?", "options": ["List", "Dictionary", "Set", "Tuple"], "answer": "Tuple"},
+                {"question": "How do you start a comment in Python?", "options": ["//", "#", "/*", "<!--"], "answer": "#"},
+                {"question": "What does PEP 8 stand for?", "options": ["Python Enhancement Proposal 8", "Python Enterprise Package 8", "Primary Execution Phase 8", "None of the above"], "answer": "Python Enhancement Proposal 8"}
+            ]
+        }
 
-        # Static Pool Check for absolute 100% stability
-        if category and not context:
-             db_path = os.path.join(os.path.dirname(__file__), "quiz_database.json")
-             if os.path.exists(db_path):
-                  try:
-                       with open(db_path, "r") as f:
-                            db = json.load(f)
-                            if category in db and db[category]:
-                                 import random
-                                 questions = db[category]
-                                 random.shuffle(questions)
-                                 return questions[:min(count, len(questions))]
-                  except Exception:
-                       pass
+    def generate_quiz(self, context: str = "", difficulty: str = "Medium", count: int = 5, category: str = None) -> list:
+        # 1. Try to serve from Static Pool first if category matches and count is small enough
+        if category and category in self.static_pool and count <= len(self.static_pool[category]):
+             return self.static_pool[category][:count]
 
-        if not self.api_key and self.provider != "ollama":
-             return self._get_mock_quiz()
+        target_topic = category if category else "General Knowledge"
+        if context:
+             target_topic = f"the following text:\n\n{context[:2000]}"
+
+        prompt = f"""
+Generate {count} multiple choice questions with {difficulty} difficulty based on {target_topic}.
+The output MUST be a valid JSON array. DO NOT include markdown code blocks like ```json or any explanation. ONLY return the raw valid JSON array.
+
+Each object in the array MUST have the exact following keys:
+- "question": string
+- "options": list of strings (provide 4 options)
+- "answer": string (must match EXACTLY one of the strings in the "options" list)
+
+Example Output Format:
+[
+  {{
+    "question": "What does AI stand for?",
+    "options": ["Artificial Intelligence", "Automated Interface", "Active Integration", "All In"],
+    "answer": "Artificial Intelligence"
+  }}
+]
+"""
+
+        if self.provider != "ollama" and (not self.api_key or self.api_key in ["your_openai_api_key_here", "your_gemini_api_key_here"]):
+             print(f"[WARNING] API Key for {self.provider} not set for Quiz Generation. Using MOCK fallback.")
+             return self._get_mock_questions(count)
 
         if self.provider == "gemini":
-             return self._generate_gemini(system_prompt, user_prompt)
+             try:
+                  import google.generativeai as genai
+                  genai.configure(api_key=self.api_key)
+                  model = genai.GenerativeModel('gemini-1.5-flash')
+                  response = model.generate_content(prompt)
+                  return self._parse_and_clean_json(response.text, count)
+             except Exception as e:
+                  print(f"Gemini Quiz Gen Error: {e}")
+                  return self._get_mock_questions(count)
+
+        # Ollama Fallback
         elif self.provider == "ollama":
-             return self._generate_ollama(system_prompt, user_prompt)
-        else:
-             return self._generate_openai(system_prompt, user_prompt)
+             try:
+                  import httpx
+                  payload = {
+                       "model": os.getenv("OLLAMA_MODEL", "gemma"),
+                       "messages": [{"role": "user", "content": prompt}],
+                       "stream": False
+                  }
+                  response = httpx.post(f"{os.getenv('OLLAMA_HOST', 'http://localhost:11434')}/api/chat", json=payload, timeout=60.0)
+                  text = response.json()["message"]["content"]
+                  return self._parse_and_clean_json(text, count)
+             except Exception as e:
+                  print(f"Ollama Quiz Gen Error: {e}")
+                  return self._get_mock_questions(count)
 
-    def _generate_gemini(self, system, user):
-        try:
-            import google.generativeai as genai
-            genai.configure(api_key=self.api_key)
-            model = genai.GenerativeModel("gemini-2.5-flash") # Ideal for fast generation
-            
-            response = model.generate_content(
-                f"{system}\n\n{user}",
-                generation_config={"response_mime_type": "application/json"}
-            )
-            return json.loads(response.text)
-        except Exception as e:
-            print(f"[QuizGenerator] Gemini Error: {e}")
-            return self._get_mock_quiz()
+        return self._get_mock_questions(count)
 
-    def _generate_ollama(self, system, user):
-        try:
-            import httpx
-            payload = {
-                "model": os.getenv("OLLAMA_MODEL", "gemma"),
-                "messages": [
-                    {"role": "system", "content": system},
-                    {"role": "user", "content": user}
-                ],
-                "stream": False,
-                "format": "json"
-            }
-            response = httpx.post(
-                f"{os.getenv('OLLAMA_HOST', 'http://localhost:11434')}/api/chat",
-                json=payload,
-                timeout=60.0
-            )
-            text = response.json()["message"]["content"]
-            return json.loads(text)
-        except Exception as e:
-            print(f"[QuizGenerator] Ollama Error: {e}")
-            return self._get_mock_quiz()
+    def _parse_and_clean_json(self, text: str, count: int) -> list:
+         cleaned = text.strip()
+         if cleaned.startswith("```"):
+              cleaned = "\n".join(cleaned.split("\n")[1:-1]).strip()
+         try:
+              data = json.loads(cleaned)
+              if isinstance(data, list):
+                   return data[:count]
+         except Exception:
+              pass
+         return self._get_mock_questions(count)
 
-    def _generate_openai(self, system, user):
-        try:
-            from openai import OpenAI
-            client = OpenAI(api_key=self.api_key)
-            response = client.chat.completions.create(
-                model="gpt-3.5-turbo",
-                response_format={"type": "json_object"},
-                messages=[
-                    {"role": "system", "content": system},
-                    {"role": "user", "content": user}
-                ]
-            )
-            text = response.choices[0].message.content
-            # OpenAI response_format json_object requires prompt to mention "json"
-            # It returns a dict, so if it's `{ "questions": [...] }` we need list
-            parsed = json.loads(text)
-            if isinstance(parsed, dict) and "questions" in parsed:
-                return parsed["questions"]
-            return parsed
-        except Exception as e:
-             print(f"[QuizGenerator] OpenAI Error: {e}")
-             return self._get_mock_quiz()
-
-    def _get_mock_quiz(self):
-        return [
-            {
-                "question": "What is the capital of France?",
-                "options": ["Berlin", "London", "Paris", "Madrid"],
-                "answer": "Paris",
-                "explanation": "Paris is the capital and largest city of France."
-            },
-             {
-                "question": "Which planet is known as the Red Planet?",
-                "options": ["Earth", "Jupiter", "Mars", "Venus"],
-                "answer": "Mars",
-                "explanation": "Mars has iron oxide on its surface giving it a reddish appearance."
-            }
-        ]
+    def _get_mock_questions(self, count: int) -> list:
+         return [
+              {"question": f"Mock Question {i+1} regarding study material?", "options": ["Option A", "Option B", "Option C", "Option D"], "answer": "Option A"}
+              for i in range(count)
+         ]
 
 quiz_generator = QuizGenerator()
